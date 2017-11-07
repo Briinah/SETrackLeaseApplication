@@ -42,6 +42,26 @@ public class Vehicle {
 
     }
 
+    /*
+    change price
+    returns: current price
+     */
+    public int setPrice(int newPrice) {
+
+        if(newPrice > 0) {
+            this.price = newPrice;
+            System.out.print("new price = ");
+        }
+        else {
+            System.out.println("negative prices not accepted");
+            System.out.print("price is not updated. price = ");
+        }
+
+        System.out.println(price);
+        return price;
+
+    }
+
 
 
 }
