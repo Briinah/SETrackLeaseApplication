@@ -16,21 +16,11 @@ public class Vehicle {
 
     private float mileageInKm;
 
-    // represents different types of fuel
-    public enum FuelType {
-        Gasoline, Diesel, Electric
-    }
-
-    // represents different types of vehicles
-    public enum VehicleType {
-        Car, Motor, Truck
-    }
 
     public FuelType fuelType;
-    public VehicleType vehicleType;
 
     // initialises new vehicle
-    public Vehicle(String newBrand, String newType, String newLicensePlate, int newManufactureDate, int newTax, FuelType        newFuelType, VehicleType newVehicleType) {
+    public Vehicle(String newBrand, String newType, String newLicensePlate, int newManufactureDate, int newTax, FuelType        newFuelType) {
         this.brand = newBrand;
         this.type = newType;
         this.licensePlate = newLicensePlate;
@@ -38,7 +28,6 @@ public class Vehicle {
         this.tax = newTax;
         this.mileageInKm = 0;
         this.fuelType = newFuelType;
-        this.vehicleType = newVehicleType;
 
     }
 
@@ -53,7 +42,7 @@ public class Vehicle {
             System.out.print("new price = ");
         }
         else {
-            System.out.println("negative prices not accepted");
+            System.out.println("negative prices or value 0 are not accepted");
             System.out.print("price is not updated. price = ");
         }
 
