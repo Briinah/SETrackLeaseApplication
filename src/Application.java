@@ -1,4 +1,3 @@
-package leasecompany;
 
 public class Application {
 
