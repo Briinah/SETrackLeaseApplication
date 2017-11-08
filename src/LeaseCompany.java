@@ -1,3 +1,5 @@
+import jdk.management.resource.internal.inst.SocketOutputStreamRMHooks;
+
 public class LeaseCompany {
 
     Vehicle[] vehicles;
@@ -39,43 +41,46 @@ public class LeaseCompany {
         }
     }
 
-    public void removeContract(Contract contract){
-        for (int i = 0; i < currentNumberOfContracts; i++) {
-            // if contract found
+    // Remove a contract
+    public void removeContract(Contract contract) {
+        for (int i = 0; i < currentNumberOfContracts; i++){
             if (contracts[i] == contract){
-                // remove contract
-                contracts[i] = null;
-                for (int j = i; j < currentNumberOfContracts - 1; j++) {
-                    // Shift contracts to left
-                    contracts[j] = contracts[j+1];
-                }
+                contracts[i] = contracts[currentNumberOfContracts - 1];
+                contracts[currentNumberOfContracts - 1] = null;
                 // update current number of contracts
                 currentNumberOfContracts--;
-                contracts[currentNumberOfContracts] = null;
                 // Exit function; we're done
                 return;
             }
+        }
+        System.out.println("Contract not found");
+    }
+
+    // Remove a vehicle
+    public void removeVehicle(Vehicle vehicle) {
+        for (int i = 0; i < currentNumberOfVehicles; i++){
+            if (vehicles[i] == vehicle){
+                // overwrite with last car
+                vehicles[i] = vehicles[currentNumberOfVehicles - 1];
+                // remove duplicate
+                vehicles[currentNumberOfVehicles - 1] = null;
+                // update current number of contracts
+                currentNumberOfVehicles--;
+                // Exit function; we're done
+                return;
+            }
+        }
+        System.out.println("Car not found");
+
+    }
+
+    public void printCars(){
+        for (Vehicle vehicle :
+                vehicles) {
+            System.out.println(vehicle);
         }
     }
 
-    public void removeVehicle(Vehicle vehicle){
-        for (int i = 0; i < currentNumberOfVehicles; i++) {
-            // if vehicle found
-            if (vehicles[i] == vehicle){
-                // remove vehicle
-                vehicles[i] = null;
-                for (int j = i; j < currentNumberOfVehicles - 1; j++) {
-                    // Shift contracts to left
-                    vehicles[j] = vehicles[j+1];
-                }
-                // update current number of vehicles
-                currentNumberOfVehicles--;
-                vehicles[currentNumberOfVehicles] = null;
-                // Exit function; we're done
-                return;
-            }
-        }
-    }
 
     public void getAvailableVehicles(){
 
