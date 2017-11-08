@@ -19,13 +19,6 @@ public class LeaseCompany {
         maxNumberOfContracts = numberOfContracts;
     }
 
-    public Vehicle[] getVehicles(){
-        return vehicles;
-    }
-
-    public Contract[] getContracts() {
-        return contracts;
-    }
 
     public void addVehicle(Vehicle vehicle){
         if(currentNumberOfVehicles < maxNumberOfVehicles){
@@ -85,9 +78,47 @@ public class LeaseCompany {
         }
     }
 
+    public Vehicle[] getVehicles(){
+        return vehicles;
+    }
 
-    public void getAvailableVehicles(){
+    public Contract[] getContracts() {
+        return contracts;
+    }
 
+    // Checks if the vehicle is available
+    private boolean isVehicleAvailable(Vehicle vehicle){
+        for (int i = 0; i < currentNumberOfContracts; i++) {
+            if(vehicle == contracts[i].getVehicle()){
+                return false;
+            }
+        }
+        return true;
+    }
+
+    //Returns number of available vehicles
+    private int getNumberOfAvailableVehicles(){
+        int number = 0;
+        for (int i = 0; i < currentNumberOfVehicles; i++) {
+            if(isVehicleAvailable(vehicles[i])){
+                number++;
+            }
+        }
+        return number;
+    }
+
+    //Returns Array of available vehicles
+    public Vehicle[] getAvailableVehicles(){
+        int numberOfAvailableVehicles = getNumberOfAvailableVehicles();
+        int currentIndex = 0;
+        Vehicle[] returnArray = new Vehicle[numberOfAvailableVehicles];
+        for (int i = 0; i < currentNumberOfVehicles; i++) {
+            if(isVehicleAvailable(vehicles[i])){
+                returnArray[currentIndex] = vehicles[i];
+                currentIndex++;
+            }
+        }
+        return returnArray;
     }
 
 }
