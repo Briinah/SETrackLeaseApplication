@@ -1,6 +1,7 @@
 package leasecompany;
 
 import company.*;
+import leasecompany.vehicles.*;
 
 import java.time.LocalDate;
 import java.time.Period;
@@ -47,7 +48,7 @@ public class Contract {
 
     public void printContractDetails(Employee employee, Vehicle vehicle) {
 
-        System.out.println("The contract is with " + employee.getFullName() +".");
+      //  System.out.println("The contract is with " + employee.getFullName() +".");
         
 
     }
