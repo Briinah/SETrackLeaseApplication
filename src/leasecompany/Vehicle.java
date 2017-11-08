@@ -1,4 +1,4 @@
 package leasecompany;
 
-public class Contract {
+public class Vehicle {
 }
