@@ -1,3 +1,7 @@
+package leasecompany;
+
+import company.*;
+
 import java.time.LocalDate;
 import java.time.Period;
 
@@ -13,7 +17,6 @@ public class Contract {
         this.vehicle = vehicle;
         this.startDate=startDate;
         this.endDate=endDate;
-
     }
 
     public Employee getEmployee() {
@@ -39,6 +42,13 @@ public class Contract {
         int years = d.getYears();
 
         System.out.println("You have " + days + " days, " + months + " months and " + years + " years remaining.");
+
+    }
+
+    public void printContractDetails(Employee employee, Vehicle vehicle) {
+
+        System.out.println("The contract is with " + employee.getFullName() +".");
+        
 
     }
 
