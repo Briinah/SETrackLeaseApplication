@@ -1,4 +1,4 @@
-package leasecompany;
+package company;
 
 public class Employee {
 
