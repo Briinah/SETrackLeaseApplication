@@ -1,3 +1,5 @@
+package leasecompany.vehicles;
+
 public class Car extends Vehicle{
 
     public Car (String newBrand, String newType, String newLicensePlate, int newManufactureDate, int newTax, FuelType newFuelType) {

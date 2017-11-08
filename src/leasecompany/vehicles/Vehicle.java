@@ -1,8 +1,10 @@
-
+package leasecompany.vehicles;
 /*
 This class represents a vehicle
 Authors: Carolien en Maarten
  */
+
+import leasecompany.vehicles.FuelType;
 
 public class Vehicle {
 
