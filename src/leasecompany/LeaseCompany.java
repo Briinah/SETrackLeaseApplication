@@ -1,4 +1,8 @@
+package leasecompany;
+
 import jdk.management.resource.internal.inst.SocketOutputStreamRMHooks;
+import leasecompany.Contract;
+import leasecompany.vehicles.Vehicle;
 
 public class LeaseCompany {
 
