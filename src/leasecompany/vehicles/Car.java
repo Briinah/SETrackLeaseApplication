@@ -16,6 +16,7 @@ public class Car extends Vehicle{
 
         String details = "This " + getVehicleType() + " is a " + brand + " " + type + "\n";
         details += "\t" + "License plate: " + licensePlate + "\n";
+        details += "\t" + "Current mileage: " + mileageInKm + "\n";
         details += "\t" + "Manufacture date: " + manufactureDate + "\n";
         details += "\t" + "Fuel type: " + fuelType + "\n";
         details += "\t" + "Tow bar: " + hasTowbar + "\n";
