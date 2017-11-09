@@ -16,4 +16,8 @@ public class Company {
                 new Employee("Anton", "Quelle",false,4)
         };
     }
+
+    public Employee[] getEmployeeList() {
+     return this.employees;
+    }
 }

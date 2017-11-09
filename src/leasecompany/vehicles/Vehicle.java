@@ -53,6 +53,35 @@ public class Vehicle {
 
     }
 
+    public String getBrand() {
+        return brand;
+    }
 
+    public String getType() {
+        return type;
+    }
 
+    public String getLicensePlate() {
+        return licensePlate;
+    }
+
+    public int getPrice() {
+        return price;
+    }
+
+    public int getManufactureDate() {
+        return manufactureDate;
+    }
+
+    public int getTax() {
+        return tax;
+    }
+
+    public float getMileageInKm() {
+        return mileageInKm;
+    }
+
+    public FuelType getFuelType() {
+        return fuelType;
+    }
 }

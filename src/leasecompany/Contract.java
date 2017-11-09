@@ -18,6 +18,7 @@ public class Contract {
         this.vehicle = vehicle;
         this.startDate=startDate;
         this.endDate=endDate;
+        getEmployee().setHasContract(true);
     }
 
     public Employee getEmployee() {
@@ -46,11 +47,20 @@ public class Contract {
 
     }
 
-    public void printContractDetails(Employee employee, Vehicle vehicle) {
-
-      //  System.out.println("The contract is with " + employee.getFullName() +".");
-        
-
+    public void endContract() {
+        getEmployee().setHasContract(false);
     }
+
+    public void printContractDetails() {
+
+        System.out.println("The contract is with " + getEmployee().getFullName() + ".");
+
+        //System.out.println(getVehicle().getDetails());
+
+        System.out.println("The contract started on " + startDate.getDayOfMonth() + "-" + startDate.getMonthValue() + "-" + startDate.getYear() + ".");
+
+        System.out.println("The contract will end on " + endDate.getDayOfMonth() + "-" + endDate.getMonthValue() + "-" + endDate.getYear() + ".");
+    }
+        
 
 }
