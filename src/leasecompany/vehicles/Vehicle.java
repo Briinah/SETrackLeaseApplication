@@ -53,6 +53,14 @@ public class Vehicle {
 
     }
 
+    // returns vehicle type as string
+    public String getVehicleType () {
+        return this.getClass().getSimpleName();
+    }
+
+    public String getDetails(){
+        return "";
+    }
 
 
 }
