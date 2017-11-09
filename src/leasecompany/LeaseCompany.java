@@ -100,6 +100,15 @@ public class LeaseCompany {
         return null;
     }
 
+    // Gets vehicleOfEmployee
+    public Vehicle getVehicleOfEmployee(Employee employee){
+        Contract contract = getContractOfEmployee(employee);
+        if(contract == null){
+            return null;
+        }
+        return contract.getVehicle();
+    }
+
     // Checks if the vehicle is available
     private boolean isVehicleAvailable(Vehicle vehicle) {
         for (int i = 0; i < currentNumberOfContracts; i++) {
@@ -155,7 +164,22 @@ public class LeaseCompany {
         for(int i = 0; i < availableVehicles.length; i++){
             System.out.println(availableVehicles[i].getDetails());
         }
+    }
 
+    public Employee[] getEmployeesWithContract(){
+        // WARNING: DEBUG // TODO
+        System.out.println("Execute the getemployeeswithcontract function");
+        Employee[] returnEmployeeArray = new Employee[currentNumberOfContracts];
+        for(int i = 0; i < currentNumberOfContracts; i++){
+            returnEmployeeArray[i] = contracts[i].getEmployee();
+        }
+        return returnEmployeeArray;
+    }
+
+    public void printEmployeesWithContract(){
+        for(Employee employee : getEmployeesWithContract()){
+            System.out.println("");
+        }
     }
 
 
