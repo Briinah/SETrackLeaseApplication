@@ -1,5 +1,6 @@
 package leasecompany;
 
+import company.Employee;
 import jdk.management.resource.internal.inst.SocketOutputStreamRMHooks;
 import leasecompany.Contract;
 import leasecompany.vehicles.Vehicle;
@@ -12,7 +13,7 @@ public class LeaseCompany {
     int currentNumberOfVehicles = 0;
     int currentNumberOfContracts = 0;
 
-    public LeaseCompany(int numberOfVehicles, int numberOfContracts ){
+    public LeaseCompany(int numberOfVehicles, int numberOfContracts) {
         vehicles = new Vehicle[numberOfVehicles];
         contracts = new Contract[numberOfContracts];
         maxNumberOfVehicles = numberOfVehicles;
@@ -20,28 +21,28 @@ public class LeaseCompany {
     }
 
 
-    public void addVehicle(Vehicle vehicle){
-        if(currentNumberOfVehicles < maxNumberOfVehicles){
+    public void addVehicle(Vehicle vehicle) {
+        if (currentNumberOfVehicles < maxNumberOfVehicles) {
             vehicles[currentNumberOfVehicles] = vehicle;
             currentNumberOfVehicles++;
-        }else{
+        } else {
             System.out.println("Er past geen auto meer bij. Check het wetboek at artikel 315, lid x.");
         }
     }
 
-    public void addContract(Contract contract){
-        if(currentNumberOfContracts < maxNumberOfContracts){
+    public void addContract(Contract contract) {
+        if (currentNumberOfContracts < maxNumberOfContracts) {
             contracts[currentNumberOfContracts] = contract;
             currentNumberOfContracts++;
-        } else{
+        } else {
             System.out.println("Er past geen contract meer bij.");
         }
     }
 
     // Remove a contract
     public void removeContract(Contract contract) {
-        for (int i = 0; i < currentNumberOfContracts; i++){
-            if (contracts[i] == contract){
+        for (int i = 0; i < currentNumberOfContracts; i++) {
+            if (contracts[i] == contract) {
                 contracts[i] = contracts[currentNumberOfContracts - 1];
                 contracts[currentNumberOfContracts - 1] = null;
                 // update current number of contracts
@@ -55,8 +56,8 @@ public class LeaseCompany {
 
     // Remove a vehicle
     public void removeVehicle(Vehicle vehicle) {
-        for (int i = 0; i < currentNumberOfVehicles; i++){
-            if (vehicles[i] == vehicle){
+        for (int i = 0; i < currentNumberOfVehicles; i++) {
+            if (vehicles[i] == vehicle) {
                 // overwrite with last car
                 vehicles[i] = vehicles[currentNumberOfVehicles - 1];
                 // remove duplicate
@@ -71,14 +72,7 @@ public class LeaseCompany {
 
     }
 
-    public void printCars(){
-        for (Vehicle vehicle :
-                vehicles) {
-            System.out.println(vehicle);
-        }
-    }
-
-    public Vehicle[] getVehicles(){
+    public Vehicle[] getVehicles() {
         return vehicles;
     }
 
@@ -87,9 +81,29 @@ public class LeaseCompany {
     }
 
     // Checks if the vehicle is available
-    private boolean isVehicleAvailable(Vehicle vehicle){
+    public Contract getContractOfVehicle(Vehicle vehicle) {
         for (int i = 0; i < currentNumberOfContracts; i++) {
-            if(vehicle == contracts[i].getVehicle()){
+            if (vehicle == contracts[i].getVehicle()) {
+                return contracts[i];
+            }
+        }
+        return null;
+    }
+
+    // Checks what contract belongs to the employee
+    public Contract getContractOfEmployee(Employee employee) {
+        for (int i = 0; i < currentNumberOfContracts; i++) {
+            if (employee == contracts[i].getEmployee()) {
+                return contracts[i];
+            }
+        }
+        return null;
+    }
+
+    // Checks if the vehicle is available
+    private boolean isVehicleAvailable(Vehicle vehicle) {
+        for (int i = 0; i < currentNumberOfContracts; i++) {
+            if (vehicle == contracts[i].getVehicle()) {
                 return false;
             }
         }
@@ -97,10 +111,10 @@ public class LeaseCompany {
     }
 
     //Returns number of available vehicles
-    private int getNumberOfAvailableVehicles(){
+    private int getNumberOfAvailableVehicles() {
         int number = 0;
         for (int i = 0; i < currentNumberOfVehicles; i++) {
-            if(isVehicleAvailable(vehicles[i])){
+            if (isVehicleAvailable(vehicles[i])) {
                 number++;
             }
         }
@@ -108,17 +122,41 @@ public class LeaseCompany {
     }
 
     //Returns Array of available vehicles
-    public Vehicle[] getAvailableVehicles(){
+    public Vehicle[] getAvailableVehicles() {
         int numberOfAvailableVehicles = getNumberOfAvailableVehicles();
         int currentIndex = 0;
         Vehicle[] returnArray = new Vehicle[numberOfAvailableVehicles];
         for (int i = 0; i < currentNumberOfVehicles; i++) {
-            if(isVehicleAvailable(vehicles[i])){
+            if (isVehicleAvailable(vehicles[i])) {
                 returnArray[currentIndex] = vehicles[i];
                 currentIndex++;
             }
         }
         return returnArray;
     }
+
+    //Prints details of all vehicles
+    public void printVehicleDetails() {
+        for (int i = 0; i < currentNumberOfVehicles; i++) {
+            System.out.println(vehicles[i].getDetails());
+        }
+    }
+
+    //Prints details of all contracts
+    public void printContractDetails() {
+        for (int i = 0; i < currentNumberOfContracts; i++) {
+            System.out.println(contracts[i].getDetails());
+        }
+    }
+
+    public void printAvailableVehicleDetails(){
+        System.out.println("Printing currently available vehicle details:");
+        Vehicle[] availableVehicles = getAvailableVehicles();
+        for(int i = 0; i < availableVehicles.length; i++){
+            System.out.println(availableVehicles[i].getDetails());
+        }
+
+    }
+
 
 }
