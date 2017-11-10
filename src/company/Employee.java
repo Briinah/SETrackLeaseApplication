@@ -40,6 +40,13 @@ public class Employee {
         System.out.println("Couldn't find a contract for " + this.getFullName());
         return null;
 
+
+    }
+
+    public String getVehicleDetails () {
+
+        return getContract().getVehicle().getDetails();
+
     }
 
 }
