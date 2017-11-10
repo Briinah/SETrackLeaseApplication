@@ -50,4 +50,19 @@ public class Employee {
         }
     }
 
+    /*
+    Get vehicle details via contract
+    Returns a string with vehicle details. If no details are available, returns empty string.
+     */
+    public String getVehicleDetails () {
+
+        try {
+            return getContract().getVehicle().getDetails();
+        }
+        catch(NullPointerException npe){
+            System.out.println("No vehicle details available.");
+            return "";
+        }
+    }
+
 }
