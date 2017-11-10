@@ -51,7 +51,7 @@ public class Contract {
         getEmployee().setHasContract(false);
     }
 
-    public void printContractDetails() {
+    public void printDetails() {
 
         System.out.println("The contract is with " + getEmployee().getFullName() + ".");
 
