@@ -174,9 +174,10 @@ public class LeaseCompany {
         return returnEmployeeArray;
     }
 
+    // prints details of customers
     public void printEmployeesWithContract(){
         for(Employee employee : getEmployeesWithContract()){
-            System.out.println("");
+            System.out.println(employee.getFullName());
         }
     }
 

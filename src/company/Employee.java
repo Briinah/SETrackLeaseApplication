@@ -2,6 +2,7 @@ package company;
 
 import leasecompany.Contract;
 import leasecompany.LeaseCompany;
+import leasecompany.vehicles.Vehicle;
 
 public class Employee {
 
@@ -39,8 +40,14 @@ public class Employee {
         }
         System.out.println("Couldn't find a contract for " + this.getFullName());
         return null;
+    }
 
-
+    // Prints array of vehicles available for rent through the company
+    public void printAvailableVehicles(){
+        Vehicle[] availableVehicles = company.getAvailableVehicles();
+        for(Vehicle vehicle: availableVehicles){
+            System.out.println(vehicle.getDetails());
+        }
     }
 
     /*
@@ -56,7 +63,6 @@ public class Employee {
             System.out.println("No vehicle details available.");
             return "";
         }
-
     }
 
 }
