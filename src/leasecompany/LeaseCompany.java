@@ -154,7 +154,7 @@ public class LeaseCompany {
     //Prints details of all contracts
     public void printContractDetails() {
         for (int i = 0; i < currentNumberOfContracts; i++) {
-            System.out.println(contracts[i].getDetails());
+            //System.out.println(contracts[i].getDetails());
         }
     }
 
