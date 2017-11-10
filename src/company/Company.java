@@ -1,6 +1,7 @@
 package company;
 
 import leasecompany.LeaseCompany;
+import leasecompany.vehicles.Vehicle;
 
 public class Company {
 
@@ -28,5 +29,35 @@ public class Company {
 
     public Employee[] getEmployeeList() {
         return this.employees;
+    }
+
+    // Returns all vehicles of all leasecompanies which are available
+    public Vehicle[] getAvailableVehicles() {
+        // Register length
+        int numberOfLeaseCompanys = leaseCompanies.length;
+
+        Vehicle[][] tempVehicleArray = new Vehicle[numberOfLeaseCompanys][];
+        // Get all available vehicles
+        for (int i = 0; i < numberOfLeaseCompanys; i++) {
+            tempVehicleArray[i] = leaseCompanies[i].getAvailableVehicles();
+        }
+        // Get total length of resulting array
+        int totalLength = 0;
+        for (int i = 0; i < numberOfLeaseCompanys; i++) {
+            totalLength = totalLength + tempVehicleArray[i].length;
+        }
+        // Make new array, length is totalLength.
+        Vehicle[] returnArray = new Vehicle[totalLength];
+        // Index to keep on track
+        int currentIndex = 0;
+        for (Vehicle[] currentVehicleArray : tempVehicleArray) {
+            for (Vehicle vehicle : currentVehicleArray ) {
+                returnArray[currentIndex] = vehicle;
+                currentIndex++;
+            }
+
+        }
+        // return our list!
+        return returnArray;
     }
 }
