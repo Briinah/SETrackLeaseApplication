@@ -154,7 +154,7 @@ public class LeaseCompany {
     //Prints details of all contracts
     public void printContractDetails() {
         for (int i = 0; i < currentNumberOfContracts; i++) {
-            //System.out.println(contracts[i].getDetails());
+            contracts[i].printDetails();
         }
     }
 
@@ -167,8 +167,6 @@ public class LeaseCompany {
     }
 
     public Employee[] getEmployeesWithContract(){
-        // WARNING: DEBUG // TODO
-        System.out.println("Execute the getemployeeswithcontract function");
         Employee[] returnEmployeeArray = new Employee[currentNumberOfContracts];
         for(int i = 0; i < currentNumberOfContracts; i++){
             returnEmployeeArray[i] = contracts[i].getEmployee();
