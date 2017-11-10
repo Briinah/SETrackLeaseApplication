@@ -25,7 +25,7 @@ public abstract class Vehicle {
     protected FuelType fuelType;
 
     // initialises new vehicle
-    public Vehicle(String newBrand, String newType, String newLicensePlate, LocalDate newManufactureDate, int newTax, FuelType        newFuelType) {
+    public Vehicle(String newBrand, String newType, String newLicensePlate, LocalDate newManufactureDate, int newTax, FuelType newFuelType) {
         this.brand = newBrand;
         this.type = newType;
         this.licensePlate = newLicensePlate;
@@ -33,7 +33,6 @@ public abstract class Vehicle {
         this.tax = newTax;
         this.mileageInKm = 0;
         this.fuelType = newFuelType;
-
     }
 
     /*
