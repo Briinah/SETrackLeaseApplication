@@ -37,7 +37,10 @@ public class Contract {
         return this.startDate;
     }
 
-    public void getTimeRemaining(LocalDate currentDate, LocalDate endDate) {
+    //Calculates the difference between the current and end date of the contract,
+    //puts it in a Period class and prints the results.
+
+    public void printTimeRemaining(LocalDate currentDate, LocalDate endDate) {
         Period d = Period.between(currentDate, endDate);
         int days  = d.getDays();
         int months = d.getMonths();
@@ -50,6 +53,8 @@ public class Contract {
     public void endContract() {
         getEmployee().setHasContract(false);
     }
+
+    //Prints relevant information from all the instance variables of the contract.
 
     public void printDetails() {
 
