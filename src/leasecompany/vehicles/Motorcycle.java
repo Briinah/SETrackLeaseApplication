@@ -15,17 +15,15 @@ public class Motorcycle extends Vehicle {
 
     public String getDetails(){
 
+        String details = "This " + getVehicleType() + " is a " + brand + " " + type + "\n";
+        details += "\t" + "License plate: " + licensePlate + "\n";
+        details += "\t" + "Current mileage: " + mileageInKm + "\n";
+        details += "\t" + "Manufacture date: " + manufactureDate + "\n";
+        details += "\t" + "Fuel type: " + fuelType + "\n";
+        details += "\t" + "Side car: " + hasSideCar + "\n";
+        details += "\t" + "Saddle bags: " + hasSaddleBags + "\n";
 
-            String details = "This " + getVehicleType() + " is a " + brand + " " + type + "\n";
-            details += "\t" + "License plate: " + licensePlate + "\n";
-            details += "\t" + "Current mileage: " + mileageInKm + "\n";
-            details += "\t" + "Manufacture date: " + manufactureDate + "\n";
-            details += "\t" + "Fuel type: " + fuelType + "\n";
-            details += "\t" + "Side car: " + hasSideCar + "\n";
-            details += "\t" + "Saddle bags: " + hasSaddleBags + "\n";
-
-            return details;
-
+        return details;
     }
 
     public boolean hasSideCar() {
