@@ -7,6 +7,9 @@ public class Company {
     Employee[] employees;
     LeaseCompany[] leaseCompanies;
 
+    int currentNumberOfEmployees;
+    int maxNumberOfEmployees;
+
     public Company(){
         employees = new Employee[]{
                 new Employee("Daniel", "Oliemans",5,this),
@@ -29,4 +32,28 @@ public class Company {
     public Employee[] getEmployeeList() {
         return this.employees;
     }
+
+    public void addEmployee(Employee employee) {
+        if (currentNumberOfEmployees < maxNumberOfEmployees) {
+            employees[currentNumberOfEmployees] = employee;
+            currentNumberOfEmployees++;
+        } else {
+            System.out.println("Meer werknemers mogelijk. Check het wetboek at artikel 315, lid x.");
+        }
+    }
+
+    public void removeEmployee(Employee employee) {
+        for (int i = 0; i < currentNumberOfEmployees; i++) {
+            if (employees[i] == employee) {
+                employees[i] = employees[currentNumberOfEmployees - 1];
+                employees[currentNumberOfEmployees - 1] = null;
+                // update current number of contracts
+                currentNumberOfEmployees--;
+                // Exit function; we're done
+                return;
+            }
+        }
+        System.out.println("Contract not found");
+    }
+
 }
