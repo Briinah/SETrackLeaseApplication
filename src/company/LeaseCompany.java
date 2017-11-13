@@ -1,18 +1,12 @@
-package leasecompany;
+package company;
 
-import company.Company;
-import company.Employee;
-import jdk.management.resource.internal.inst.SocketOutputStreamRMHooks;
-import leasecompany.Contract;
-import leasecompany.vehicles.Car;
-import leasecompany.vehicles.FuelType;
-import leasecompany.vehicles.Vehicle;
-
-import java.time.LocalDate;
+import company.modules.Contract;
+import company.modules.Employee;
+import vehicles.Vehicle;
 
 import static java.time.LocalDate.now;
 
-public class LeaseCompany {
+public class LeaseCompany extends Company {
 
     Vehicle[] vehicles;
     Contract[] contracts;

@@ -1,8 +1,8 @@
-package company;
+package company.modules;
 
-import leasecompany.Contract;
-import leasecompany.LeaseCompany;
-import leasecompany.vehicles.Vehicle;
+import company.LeaseCompany;
+import company.TechCompany;
+import vehicles.Vehicle;
 
 public class Employee {
 
@@ -10,13 +10,13 @@ public class Employee {
     String lastName;
     boolean contract; //Initialises to false
     int leaseLevel;
-    Company company;
+    TechCompany techCompany;
 
-    public Employee(String firstname, String lastname, int leaseLevel, Company company){
+    public Employee(String firstname, String lastname, int leaseLevel, TechCompany techCompany){
         this.firstName = firstname;
         this.lastName = lastname;
         this.leaseLevel = leaseLevel;
-        this.company=company;
+        this.techCompany = techCompany;
     }
 
     public String getFullName() {
@@ -33,7 +33,7 @@ public class Employee {
 
 
     public Contract getContract() {
-        for(LeaseCompany lc : company.getLeaseCompanies()){
+        for(LeaseCompany lc : techCompany.getLeaseCompanies()){
             if(lc.getContractOfEmployee(this) != null){
                 Contract c = lc.getContractOfEmployee(this);
                 return c;
@@ -43,9 +43,9 @@ public class Employee {
         return null;
     }
 
-    // Prints array of vehicles available for rent through the company
+    // Prints array of vehicles available for rent through the techCompany
     public void printAvailableVehicles(){
-        Vehicle[] availableVehicles = company.getAvailableVehicles();
+        Vehicle[] availableVehicles = techCompany.getAvailableVehicles();
         for(Vehicle vehicle: availableVehicles){
             System.out.println(vehicle.getDetails());
         }

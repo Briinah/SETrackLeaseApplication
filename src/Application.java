@@ -1,10 +1,11 @@
 import company.*;
-import leasecompany.Contract;
-import leasecompany.LeaseCompany;
-import leasecompany.vehicles.Car;
-import leasecompany.vehicles.FuelType;
-import leasecompany.vehicles.Motorcycle;
-import leasecompany.vehicles.Vehicle;
+import company.modules.Contract;
+import company.LeaseCompany;
+import company.modules.Employee;
+import vehicles.Car;
+import vehicles.FuelType;
+import vehicles.Motorcycle;
+import vehicles.Vehicle;
 import java.time.LocalDate;
 
 
@@ -19,16 +20,16 @@ public class Application {
     public static void setDatabase() // After startup create database.
     {
         //Create companies.
-        Company company = new Company();
-        LeaseCompany ls = company.getLeaseCompanies()[0];
+        TechCompany techCompany = new TechCompany();
+        LeaseCompany ls = techCompany.getLeaseCompanies()[0];
 
         //Create omployees.
-        Employee jeffrey = new Employee("Jeffrey","Scheidelaar",1,company);
-        Employee Bas = new Employee("Bas","Weeterings",1,company);
-        Employee Koen = new Employee("Koen","Weeterings",1,company);
-        company.addEmployee(jeffrey);
-        company.addEmployee(Bas);
-        company.addEmployee(Koen);
+        Employee jeffrey = new Employee("Jeffrey","Scheidelaar",1, techCompany);
+        Employee Bas = new Employee("Bas","Weeterings",1, techCompany);
+        Employee Koen = new Employee("Koen","Weeterings",1, techCompany);
+        techCompany.addEmployee(jeffrey);
+        techCompany.addEmployee(Bas);
+        techCompany.addEmployee(Koen);
 
         // Create vehicles.
         Vehicle BMWBas = new Car("BMW","I3","GHFD45",LocalDate.of(2015,2,10),22, FuelType.Gasoline);
