@@ -5,24 +5,27 @@ Authors: Carolien en Maarten
  */
 
 import leasecompany.vehicles.FuelType;
+import sun.util.resources.cldr.lag.LocaleNames_lag;
 
-public class Vehicle {
+import java.time.LocalDate;
 
-    private String brand;
-    private String type;
-    private String licensePlate;
+public abstract class Vehicle {
 
-    private int price;
-    private int manufactureDate;
-    private int tax;
+    protected String brand;
+    protected String type;
+    protected String licensePlate;
 
-    private float mileageInKm;
+    protected int price;
+    protected LocalDate manufactureDate;
+    protected int tax;
+
+    protected float mileageInKm;
 
 
-    public FuelType fuelType;
+    protected FuelType fuelType;
 
     // initialises new vehicle
-    public Vehicle(String newBrand, String newType, String newLicensePlate, int newManufactureDate, int newTax, FuelType        newFuelType) {
+    public Vehicle(String newBrand, String newType, String newLicensePlate, LocalDate newManufactureDate, int newTax, FuelType newFuelType) {
         this.brand = newBrand;
         this.type = newType;
         this.licensePlate = newLicensePlate;
@@ -30,7 +33,6 @@ public class Vehicle {
         this.tax = newTax;
         this.mileageInKm = 0;
         this.fuelType = newFuelType;
-
     }
 
     /*
@@ -53,6 +55,14 @@ public class Vehicle {
 
     }
 
+
+    // returns vehicle type as string
+    public String getVehicleType () {
+        return this.getClass().getSimpleName();
+    }
+
+    public abstract String getDetails();
+
     public String getBrand() {
         return brand;
     }
@@ -69,7 +79,7 @@ public class Vehicle {
         return price;
     }
 
-    public int getManufactureDate() {
+    public LocalDate getManufactureDate() {
         return manufactureDate;
     }
 
