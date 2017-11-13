@@ -190,5 +190,16 @@ public class LeaseCompany {
         }
     }
 
+    // Checks if the employee has a car here.
+    public boolean checkIfEmployeeHasCarHere(Employee e) {
+
+        for(int i = 0; i < currentNumberOfContracts; i++) {
+            if(contracts[i].getEmployee() == e){
+                return true;
+            }
+        }
+        return false;
+    }
+
 
 }

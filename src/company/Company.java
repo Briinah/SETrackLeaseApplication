@@ -92,6 +92,20 @@ public class Company {
         }
         // return our list!
         return returnArray;
+
+    }
+
+    //Checks if the employee has a contract by one of the leasecompanies and prints out if there is
+    public boolean checkIfEmpHasContract(Employee e) {
+
+        for(int i = 0; i < leaseCompanies.length; i++){
+            if(leaseCompanies[i].checkIfEmployeeHasCarHere(e) == true) {
+                System.out.println(e.getFullName() + "has a contract with " + leaseCompanies[i]);
+                return true;
+            }
+        }
+        System.out.println("There is no contract found for " + e.getFullName() );
+        return false;
     }
 
 }
