@@ -6,14 +6,16 @@ import vehicles.Vehicle;
 
 import static java.time.LocalDate.now;
 
+//A lease company. In addition to Company superclass, it has vehicles and lease contracts.
+
 public class LeaseCompany extends Company {
 
-    Vehicle[] vehicles;
-    Contract[] contracts;
-    int maxNumberOfVehicles, maxNumberOfContracts;
-    int currentNumberOfVehicles = 0;
-    int currentNumberOfContracts = 0;
+    private Vehicle[] vehicles;
+    private Contract[] contracts;
+    private int maxNumberOfVehicles, maxNumberOfContracts;
+    private int currentNumberOfVehicles = 0, currentNumberOfContracts = 0;
 
+    //Constructor that initialises the class with a specified maximum possible number of contracts and vehicles.
     public LeaseCompany(int numberOfVehicles, int numberOfContracts) {
         vehicles = new Vehicle[numberOfVehicles];
         contracts = new Contract[numberOfContracts];
@@ -21,7 +23,6 @@ public class LeaseCompany extends Company {
         maxNumberOfContracts = numberOfContracts;
 
     }
-
 
     public void addVehicle(Vehicle vehicle) {
         if (currentNumberOfVehicles < maxNumberOfVehicles) {

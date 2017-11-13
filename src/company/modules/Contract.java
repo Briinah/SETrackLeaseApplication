@@ -5,6 +5,7 @@ import vehicles.*;
 import java.time.LocalDate;
 import java.time.Period;
 
+//The contract class that represents the lease contracts held by a lease company.
 public class Contract {
 
     private Employee employee;

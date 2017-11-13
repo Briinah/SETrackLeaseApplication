@@ -7,9 +7,6 @@ public class TechCompany extends Company {
 
     LeaseCompany[] leaseCompanies;
 
-    int currentNumberOfEmployees = 0;
-    int maxNumberOfEmployees = 10;
-
     public TechCompany(){
 
 //        employees = new Employee[]{
