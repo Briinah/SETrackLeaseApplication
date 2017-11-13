@@ -1,11 +1,8 @@
-package leasecompany.vehicles;
+package vehicles;
 /*
 This class represents a vehicle
 Authors: Carolien en Maarten
  */
-
-import leasecompany.vehicles.FuelType;
-import sun.util.resources.cldr.lag.LocaleNames_lag;
 
 import java.time.LocalDate;
 
@@ -25,7 +22,7 @@ public abstract class Vehicle {
     protected FuelType fuelType;
 
     // initialises new vehicle
-    public Vehicle(String newBrand, String newType, String newLicensePlate, LocalDate newManufactureDate, int newTax, FuelType        newFuelType) {
+    public Vehicle(String newBrand, String newType, String newLicensePlate, LocalDate newManufactureDate, int newTax, FuelType newFuelType) {
         this.brand = newBrand;
         this.type = newType;
         this.licensePlate = newLicensePlate;
@@ -33,7 +30,6 @@ public abstract class Vehicle {
         this.tax = newTax;
         this.mileageInKm = 0;
         this.fuelType = newFuelType;
-
     }
 
     /*
@@ -56,6 +52,7 @@ public abstract class Vehicle {
 
     }
 
+
     // returns vehicle type as string
     public String getVehicleType () {
         return this.getClass().getSimpleName();
@@ -63,5 +60,35 @@ public abstract class Vehicle {
 
     public abstract String getDetails();
 
+    public String getBrand() {
+        return brand;
+    }
 
+    public String getType() {
+        return type;
+    }
+
+    public String getLicensePlate() {
+        return licensePlate;
+    }
+
+    public int getPrice() {
+        return price;
+    }
+
+    public LocalDate getManufactureDate() {
+        return manufactureDate;
+    }
+
+    public int getTax() {
+        return tax;
+    }
+
+    public float getMileageInKm() {
+        return mileageInKm;
+    }
+
+    public FuelType getFuelType() {
+        return fuelType;
+    }
 }

@@ -1,25 +1,28 @@
-package leasecompany;
+package company;
 
-import company.Employee;
-import jdk.management.resource.internal.inst.SocketOutputStreamRMHooks;
-import leasecompany.Contract;
-import leasecompany.vehicles.Vehicle;
+import company.modules.Contract;
+import company.modules.Employee;
+import vehicles.Vehicle;
 
-public class LeaseCompany {
+import static java.time.LocalDate.now;
 
-    Vehicle[] vehicles;
-    Contract[] contracts;
-    int maxNumberOfVehicles, maxNumberOfContracts;
-    int currentNumberOfVehicles = 0;
-    int currentNumberOfContracts = 0;
+//A lease company. In addition to Company superclass, it has vehicles and lease contracts.
 
+public class LeaseCompany extends Company {
+
+    private Vehicle[] vehicles;
+    private Contract[] contracts;
+    private int maxNumberOfVehicles, maxNumberOfContracts;
+    private int currentNumberOfVehicles = 0, currentNumberOfContracts = 0;
+
+    //Constructor that initialises the class with a specified maximum possible number of contracts and vehicles.
     public LeaseCompany(int numberOfVehicles, int numberOfContracts) {
         vehicles = new Vehicle[numberOfVehicles];
         contracts = new Contract[numberOfContracts];
         maxNumberOfVehicles = numberOfVehicles;
         maxNumberOfContracts = numberOfContracts;
-    }
 
+    }
 
     public void addVehicle(Vehicle vehicle) {
         if (currentNumberOfVehicles < maxNumberOfVehicles) {
@@ -47,6 +50,7 @@ public class LeaseCompany {
                 contracts[currentNumberOfContracts - 1] = null;
                 // update current number of contracts
                 currentNumberOfContracts--;
+                contract.endContract();
                 // Exit function; we're done
                 return;
             }

@@ -1,6 +1,4 @@
-package leasecompany.vehicles;
-
-import leasecompany.vehicles.FuelType;
+package vehicles;
 
 import java.time.LocalDate;
 
