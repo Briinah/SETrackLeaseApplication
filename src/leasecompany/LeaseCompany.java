@@ -1,9 +1,16 @@
 package leasecompany;
 
+import company.Company;
 import company.Employee;
 import jdk.management.resource.internal.inst.SocketOutputStreamRMHooks;
 import leasecompany.Contract;
+import leasecompany.vehicles.Car;
+import leasecompany.vehicles.FuelType;
 import leasecompany.vehicles.Vehicle;
+
+import java.time.LocalDate;
+
+import static java.time.LocalDate.now;
 
 public class LeaseCompany {
 
@@ -18,6 +25,7 @@ public class LeaseCompany {
         contracts = new Contract[numberOfContracts];
         maxNumberOfVehicles = numberOfVehicles;
         maxNumberOfContracts = numberOfContracts;
+
     }
 
 
@@ -47,6 +55,7 @@ public class LeaseCompany {
                 contracts[currentNumberOfContracts - 1] = null;
                 // update current number of contracts
                 currentNumberOfContracts--;
+                contract.endContract();
                 // Exit function; we're done
                 return;
             }

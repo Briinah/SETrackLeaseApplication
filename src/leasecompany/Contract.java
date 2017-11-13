@@ -61,11 +61,19 @@ public class Contract {
         System.out.println("The contract is with " + getEmployee().getFullName() + ".");
 
         System.out.println(getVehicle().getDetails());
+    }
+
+    public void printContractDetails() {
+
+        System.out.println("The contract is with " + getEmployee().getFullName() + ".");
+
+        //System.out.println(getVehicle().getDetails());
 
         System.out.println("The contract started on " + startDate.getDayOfMonth() + "-" + startDate.getMonthValue() + "-" + startDate.getYear() + ".");
 
         System.out.println("The contract will end on " + endDate.getDayOfMonth() + "-" + endDate.getMonthValue() + "-" + endDate.getYear() + ".");
     }
+        
 
 
 }

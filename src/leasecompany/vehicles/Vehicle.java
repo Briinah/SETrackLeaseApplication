@@ -55,6 +55,7 @@ public abstract class Vehicle {
 
     }
 
+
     // returns vehicle type as string
     public String getVehicleType () {
         return this.getClass().getSimpleName();
@@ -62,5 +63,35 @@ public abstract class Vehicle {
 
     public abstract String getDetails();
 
+    public String getBrand() {
+        return brand;
+    }
 
+    public String getType() {
+        return type;
+    }
+
+    public String getLicensePlate() {
+        return licensePlate;
+    }
+
+    public int getPrice() {
+        return price;
+    }
+
+    public LocalDate getManufactureDate() {
+        return manufactureDate;
+    }
+
+    public int getTax() {
+        return tax;
+    }
+
+    public float getMileageInKm() {
+        return mileageInKm;
+    }
+
+    public FuelType getFuelType() {
+        return fuelType;
+    }
 }

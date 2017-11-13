@@ -31,6 +31,7 @@ public class Employee {
         this.contract=set;
     }
 
+
     public Contract getContract() {
         for(LeaseCompany lc : company.getLeaseCompanies()){
             if(lc.getContractOfEmployee(this) != null){
