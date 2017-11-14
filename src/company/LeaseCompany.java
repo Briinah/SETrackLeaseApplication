@@ -31,6 +31,7 @@ public class LeaseCompany extends Company {
     }
 
 
+    //add vehicle to the leasecompany
     public void addVehicle(Vehicle vehicle) {
         if (currentNumberOfVehicles < maxNumberOfVehicles) {
             vehicles[currentNumberOfVehicles] = vehicle;
@@ -40,6 +41,7 @@ public class LeaseCompany extends Company {
         }
     }
 
+    //add contract to the leasecompany
     public void addContract(Contract contract) {
         if (currentNumberOfContracts < maxNumberOfContracts) {
             contracts[currentNumberOfContracts] = contract;
@@ -83,10 +85,12 @@ public class LeaseCompany extends Company {
 
     }
 
+    //get vehicles contracts from the leasecompanies
     public Vehicle[] getVehicles() {
         return vehicles;
     }
 
+    //get contracts from the leasecompanies
     public Contract[] getContracts() {
         return contracts;
     }
@@ -169,6 +173,7 @@ public class LeaseCompany extends Company {
         }
     }
 
+    //prints out the details of the available vehicles
     public void printAvailableVehicleDetails(){
         System.out.println("Printing currently available vehicle details:");
         Vehicle[] availableVehicles = getAvailableVehicles();
@@ -177,6 +182,7 @@ public class LeaseCompany extends Company {
         }
     }
 
+    //returns an array holding employees with a contract
     public Employee[] getEmployeesWithContract(){
         Employee[] returnEmployeeArray = new Employee[currentNumberOfContracts];
         for(int i = 0; i < currentNumberOfContracts; i++){

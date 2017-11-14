@@ -48,8 +48,10 @@ public class Application {
         ls.addContract(conJeff);
         ls.addContract(conBas);
 
+        //Print the available vehicles
         Koen.printAvailableVehicles();
 
+        //Checks if a employee has a contract with one of the leasecompanies
         techCompany.checkIfEmpHasContract(Bas);
 
     }

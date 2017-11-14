@@ -3,6 +3,8 @@ package company;
 import company.modules.Employee;
 import vehicles.Vehicle;
 
+//A "normal" company, the leasecompanies are clients to the "normal" company. In addition to Company superclass, it has a list of available leasecompanies.
+
 public class TechCompany extends Company {
 
     LeaseCompany[] leaseCompanies;
@@ -15,7 +17,7 @@ public class TechCompany extends Company {
 //                new Employee("Bas", "Weeterings",5,this),
 //                new Employee("Carolien", "Gilbers",4,this),
 //                new Employee("Koen", "Griffioen",3,this),
-//                new Employee("Jeran", "Kapel",2,this),
+//                new Employee("Joran", "Capel",2,this),
 //                new Employee("Maarten", "Stienstra",8,this),
 //                new Employee("Anton", "Quelle",9001,this)
 //        };
