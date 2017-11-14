@@ -19,15 +19,19 @@ public class LeaseCompany {
     int maxNumberOfVehicles, maxNumberOfContracts;
     int currentNumberOfVehicles = 0;
     int currentNumberOfContracts = 0;
+    String name;
 
-    public LeaseCompany(int numberOfVehicles, int numberOfContracts) {
+    public LeaseCompany(int numberOfVehicles, int numberOfContracts, String name) {
         vehicles = new Vehicle[numberOfVehicles];
         contracts = new Contract[numberOfContracts];
         maxNumberOfVehicles = numberOfVehicles;
         maxNumberOfContracts = numberOfContracts;
-
+        this.name = name;
     }
 
+    public String getName(){
+        return this.name;
+    }
 
     public void addVehicle(Vehicle vehicle) {
         if (currentNumberOfVehicles < maxNumberOfVehicles) {
