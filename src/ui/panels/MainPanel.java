@@ -10,5 +10,6 @@ public class MainPanel extends Panel {
 
         companyButton = new Button("Companies");
         this.add(companyButton);
+
     }
 }

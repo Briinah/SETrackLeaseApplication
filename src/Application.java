@@ -7,7 +7,6 @@ import leasecompany.vehicles.Motorcycle;
 import leasecompany.vehicles.Vehicle;
 import java.time.LocalDate;
 
-
 public class Application {
 
     public static void main(String[] args)

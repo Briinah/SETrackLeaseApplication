@@ -1,5 +1,6 @@
 package ui;
 
+import ui.panels.CompanyItemPanel;
 import ui.panels.MainPanel;
 
 import javax.swing.*;
@@ -31,7 +32,7 @@ public class Display {
             }
         });
 
-        currentPanel = new MainPanel();
+        currentPanel = new CompanyItemPanel();
 
         frame.add(currentPanel);
 
