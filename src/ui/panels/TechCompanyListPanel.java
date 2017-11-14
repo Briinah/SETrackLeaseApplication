@@ -3,18 +3,25 @@ package ui.panels;
 import java.awt.*;
 import java.awt.event.*;
 
+/**
+ * Shows a list of companies, functions to add companies and edit a company
+ * Author: Daniel
+ */
 public class TechCompanyListPanel extends Panel {
 
-    Button addButton;
-    Button editButton;
-    GridBagLayout gridBagLayout;
-    List list;
-    GridBagConstraints gbc;
-    TextField textField;
-    Label label;
-    StringBuilder sb;
-    String selectedCompany;
+    private Button addButton;
+    private Button editButton;
+    private GridBagLayout gridBagLayout;
+    private List list;
+    private GridBagConstraints gbc;
+    private TextField textField;
+    private Label label;
+    private StringBuilder sb;
+    private String selectedCompany;
 
+    /**
+     * Initialises the layout, buttons and the list to manage companies
+     */
     public TechCompanyListPanel(){
 
         // Layout settings
@@ -85,12 +92,12 @@ public class TechCompanyListPanel extends Panel {
 
             @Override
             public void keyPressed(KeyEvent e) {
-
+                // Method not used, but necessary
             }
 
             @Override
             public void keyReleased(KeyEvent e) {
-
+                // Method not used, but necessary
             }
         });
 
