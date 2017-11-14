@@ -8,6 +8,8 @@ import java.awt.List;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
+import company.*;
+import leasecompany.*;
 
 
 public class CompanyItemPanel extends Panel{
@@ -17,7 +19,9 @@ public class CompanyItemPanel extends Panel{
     private Label employeeLabel, leaseCompanyLabel;
     private List employeeList,leaseCompanieList;
     private GridBagLayout layout;
-    final TextField employeeText,leaseCompanyText;
+    Company companyClass = new Company();
+    LeaseCompany ls = new LeaseCompany(5,5);
+    final TextField fullNameText,leaseCompanyText;
 
 
 
@@ -31,7 +35,7 @@ public class CompanyItemPanel extends Panel{
         delEmployee = new Button("Delete employee");
         addLeaseCompany = new Button("Add company");
         delLeaseCompany = new Button("Delete company");
-        employeeText = new TextField(25);
+        fullNameText = new TextField(25);
         leaseCompanyText = new TextField(25);
 
         employeeList = new List();
@@ -47,6 +51,7 @@ public class CompanyItemPanel extends Panel{
         delEmployee.setVisible(true);
         employeeList.setVisible(true);
         leaseCompanieList.setVisible(true);
+        fullNameText.setVisible(true);
 
         gbc.fill = GridBagConstraints.CENTER;
         gbc.gridx = 0;
@@ -69,7 +74,7 @@ public class CompanyItemPanel extends Panel{
         gbc.ipady = 10;
         gbc.gridx = 0;
         gbc.gridy = 2;
-        this.add(employeeText,gbc);
+        this.add(fullNameText,gbc);
         gbc.gridx = 4;
         gbc.gridy = 2;
         this.add(leaseCompanyText,gbc);
@@ -100,21 +105,25 @@ public class CompanyItemPanel extends Panel{
         Handlers();
     }
 
-
+    // Buttons for adding and deleting Items
     private void Handlers(){
 
         addEmployee.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                String name = employeeText.getText();
-                setEmployee(name);
+                String name = fullNameText.getText();
+                if(!name.contains(" "))
+                    return;
+                String[] fullName = name.split(" ");
+                Employee employee = new Employee(fullName[0],fullName[1],1,companyClass);
+                addEmployeeToList(employee.getFullName(),employee);
             }
         });
 
         delEmployee.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                getEmployee(employeeList.getSelectedIndex());
+                delEmployeeFromList(employeeList.getSelectedIndex());
             }
         });
 
@@ -122,40 +131,38 @@ public class CompanyItemPanel extends Panel{
             @Override
             public void actionPerformed(ActionEvent e) {
                 String company = leaseCompanyText.getText();
-                setLeaseCompany(company);
+                /// Missing Add lease company
+                addLeaseCompanyToList(company);
             }
         });
 
         delLeaseCompany.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                getLeaseCompany(leaseCompanieList.getSelectedIndex());
+                delLeaseCompanyFromList(leaseCompanieList.getSelectedIndex());
             }
         });
     }
 
-    public void setEmployee(String emp)
+    // add and delete called from buttons
+    public void addEmployeeToList(String emp,Employee employee)
     {
         employeeList.add(emp);
+        companyClass.addEmployee(employee);
     }
 
-
-    public void getEmployee(int index)
+    public void delEmployeeFromList(int index)
     {
         employeeList.remove(index);
     }
 
-    public void setLeaseCompany(String emp)
+    public void addLeaseCompanyToList(String ls)
     {
-        leaseCompanieList.add(emp);
+        leaseCompanieList.add(ls);
     }
 
-
-    public void getLeaseCompany(int index)
+    public void delLeaseCompanyFromList(int index)
     {
         leaseCompanieList.remove(index);
     }
-
-
-
 }
