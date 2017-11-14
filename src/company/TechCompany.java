@@ -20,7 +20,7 @@ public class TechCompany extends Company {
 //                new Employee("Anton", "Quelle",9001,this)
 //        };
 
-        leaseCompanies=new LeaseCompany[]{new LeaseCompany(100,100)};
+        leaseCompanies=new LeaseCompany[]{new LeaseCompany(100,100, "TheLeaseCompany1" )};
     }
 
     public LeaseCompany[] getLeaseCompanies() {
@@ -56,5 +56,19 @@ public class TechCompany extends Company {
         // return our list!
         return returnArray;
     }
+
+    //Checks if the employee has a contract by one of the leasecompanies and prints out if there is
+    public boolean checkIfEmpHasContract(Employee e) {
+
+        for(int i = 0; i < leaseCompanies.length; i++){
+            if(leaseCompanies[i].checkIfEmployeeHasCarHere(e)) {
+                System.out.println(e.getFullName() + " has a contract by " + leaseCompanies[i].getName());
+                return true;
+            }
+        }
+        System.out.println("There is no contract found for " + e.getFullName() );
+        return false;
+    }
+
 
 }

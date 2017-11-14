@@ -50,6 +50,8 @@ public class Application {
 
         Koen.printAvailableVehicles();
 
+        techCompany.checkIfEmpHasContract(Bas);
+
     }
 }
 

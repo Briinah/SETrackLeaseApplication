@@ -14,15 +14,22 @@ public class LeaseCompany extends Company {
     private Contract[] contracts;
     private int maxNumberOfVehicles, maxNumberOfContracts;
     private int currentNumberOfVehicles = 0, currentNumberOfContracts = 0;
+    private String name;
 
     //Constructor that initialises the class with a specified maximum possible number of contracts and vehicles.
-    public LeaseCompany(int numberOfVehicles, int numberOfContracts) {
+    public LeaseCompany(int numberOfVehicles, int numberOfContracts, String name) {
         vehicles = new Vehicle[numberOfVehicles];
         contracts = new Contract[numberOfContracts];
         maxNumberOfVehicles = numberOfVehicles;
         maxNumberOfContracts = numberOfContracts;
+        this.name=name;
 
     }
+
+    public String getName(){
+        return this.name;
+    }
+
 
     public void addVehicle(Vehicle vehicle) {
         if (currentNumberOfVehicles < maxNumberOfVehicles) {
@@ -184,6 +191,18 @@ public class LeaseCompany extends Company {
             System.out.println(employee.getFullName());
         }
     }
+
+    // Checks if the employee has a car here.
+    public boolean checkIfEmployeeHasCarHere(Employee e) {
+
+        for(int i = 0; i < currentNumberOfContracts; i++) {
+            if(contracts[i].getEmployee() == e){
+                return true;
+            }
+        }
+        return false;
+    }
+
 
 
 }
