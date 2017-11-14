@@ -19,7 +19,7 @@ public class LeaseCompany {
     int maxNumberOfVehicles, maxNumberOfContracts;
     int currentNumberOfVehicles = 0;
     int currentNumberOfContracts = 0;
-    String name;
+    private String name;
 
     public LeaseCompany(int numberOfVehicles, int numberOfContracts, String name) {
         vehicles = new Vehicle[numberOfVehicles];
