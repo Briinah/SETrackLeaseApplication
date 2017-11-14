@@ -1,14 +1,23 @@
 package ui.panels;
 
+import ui.elements.MenuButton;
+
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+
+/**
+ * Implements the main menu panel
+ * Author: Carolien
+ */
 public class MainPanel extends Panel {
 
-    Button companyButton;
-    Button employeeButton;
-    Button leaseCompanyButton;
+    private MenuButton companyButton;
+    private MenuButton employeeButton;
+    private MenuButton leaseCompanyButton;
+    private Label title;
+    Font myFont = new Font("myfont", Font.BOLD, 20);
 
     /**
      * Main panel with buttons to company, employee and lease company
@@ -18,19 +27,30 @@ public class MainPanel extends Panel {
         // set layout
         setLayout(new GridBagLayout());
         GridBagConstraints gbc = new GridBagConstraints();
-        gbc.gridwidth = GridBagConstraints.REMAINDER;
-        gbc.fill = GridBagConstraints.HORIZONTAL;
         gbc.insets = new Insets(10, 10, 10, 10); // margins between buttons
+        gbc.gridx = 0;
 
-        // initialize buttons
-        companyButton = new Button("Companies");
-        employeeButton = new Button("Employees");
-        leaseCompanyButton = new Button("Lease Companies");
+        // initialize label with title and add to panel
+        title = new Label("Welkom bij de Lease Applicatie");
+        title.setFont(myFont);
+        gbc.gridy = 0;
+        this.add(title);
 
-        // add buttons to panel
+        // initialize buttons and add to panel
+        companyButton = new MenuButton("Companies");
+        gbc.insets = new Insets(60, 10, 10, 10);
+        gbc.gridy = 1;
         this.add(companyButton, gbc);
+
+        employeeButton = new MenuButton("Employees");
+        gbc.insets = new Insets(10, 10, 10, 10);
+        gbc.gridy = 2;
         this.add(employeeButton, gbc);
+
+        leaseCompanyButton = new MenuButton("Lease Companies");
+        gbc.gridy = 34;
         this.add(leaseCompanyButton, gbc);
+
 
         // set company button event
         companyButton.addActionListener(new ActionListener() {
