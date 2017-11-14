@@ -1,4 +1,4 @@
-package leasecompany.vehicles;
+package vehicles;
 
 import java.time.LocalDate;
 

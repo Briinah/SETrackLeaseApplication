@@ -1,11 +1,8 @@
-package leasecompany.vehicles;
+package vehicles;
 /*
 This class represents a vehicle
 Authors: Carolien en Maarten
  */
-
-import leasecompany.vehicles.FuelType;
-import sun.util.resources.cldr.lag.LocaleNames_lag;
 
 import java.time.LocalDate;
 

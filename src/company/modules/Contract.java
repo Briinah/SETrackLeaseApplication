@@ -1,17 +1,17 @@
-package leasecompany;
+package company.modules;
 
-import company.*;
-import leasecompany.vehicles.*;
+import vehicles.*;
 
 import java.time.LocalDate;
 import java.time.Period;
 
+//The contract class that represents the lease contracts held by a lease company.
 public class Contract {
 
-    Employee employee;
-    Vehicle vehicle;
-    LocalDate startDate;
-    LocalDate endDate;
+    private Employee employee;
+    private Vehicle vehicle;
+    private LocalDate startDate;
+    private LocalDate endDate;
 
     public Contract (LocalDate startDate, LocalDate endDate, Employee employee, Vehicle vehicle) {
         this.employee = employee;

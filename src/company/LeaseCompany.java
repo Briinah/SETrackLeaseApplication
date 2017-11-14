@@ -1,37 +1,35 @@
-package leasecompany;
+package company;
 
-import company.Company;
-import company.Employee;
-import jdk.management.resource.internal.inst.SocketOutputStreamRMHooks;
-import leasecompany.Contract;
-import leasecompany.vehicles.Car;
-import leasecompany.vehicles.FuelType;
-import leasecompany.vehicles.Vehicle;
-
-import java.time.LocalDate;
+import company.modules.Contract;
+import company.modules.Employee;
+import vehicles.Vehicle;
 
 import static java.time.LocalDate.now;
 
-public class LeaseCompany {
+//A lease company. In addition to Company superclass, it has vehicles and lease contracts.
 
-    Vehicle[] vehicles;
-    Contract[] contracts;
-    int maxNumberOfVehicles, maxNumberOfContracts;
-    int currentNumberOfVehicles = 0;
-    int currentNumberOfContracts = 0;
+public class LeaseCompany extends Company {
+
+    private Vehicle[] vehicles;
+    private Contract[] contracts;
+    private int maxNumberOfVehicles, maxNumberOfContracts;
+    private int currentNumberOfVehicles = 0, currentNumberOfContracts = 0;
     private String name;
 
+    //Constructor that initialises the class with a specified maximum possible number of contracts and vehicles.
     public LeaseCompany(int numberOfVehicles, int numberOfContracts, String name) {
         vehicles = new Vehicle[numberOfVehicles];
         contracts = new Contract[numberOfContracts];
         maxNumberOfVehicles = numberOfVehicles;
         maxNumberOfContracts = numberOfContracts;
-        this.name = name;
+        this.name=name;
+
     }
 
     public String getName(){
         return this.name;
     }
+
 
     public void addVehicle(Vehicle vehicle) {
         if (currentNumberOfVehicles < maxNumberOfVehicles) {
@@ -204,6 +202,7 @@ public class LeaseCompany {
         }
         return false;
     }
+
 
 
 }
