@@ -1,5 +1,6 @@
 package ui.panels;
 
+import ui.DisplayManager;
 import ui.elements.MenuButton;
 
 import java.awt.*;
@@ -57,6 +58,7 @@ public class MainPanel extends Panel {
             @Override
             public void actionPerformed(ActionEvent e) {
                 System.out.println("Clicked company button!");
+                DisplayManager.getInstance().setCurrentPanel(PanelType.TechCompanyListPanel);
             }
         });
 
