@@ -5,7 +5,7 @@ import java.awt.event.*;
 
 /**
  * Shows a list of companies, functions to add companies and edit a company
- * Author: Daniel
+ * @author Daniel
  */
 public class TechCompanyListPanel extends Panel {
 
