@@ -19,12 +19,14 @@ public class LeaseCompany {
     int maxNumberOfVehicles, maxNumberOfContracts;
     int currentNumberOfVehicles = 0;
     int currentNumberOfContracts = 0;
+    String name;
 
-    public LeaseCompany(int numberOfVehicles, int numberOfContracts) {
-        vehicles = new Vehicle[numberOfVehicles];
-        contracts = new Contract[numberOfContracts];
-        maxNumberOfVehicles = numberOfVehicles;
-        maxNumberOfContracts = numberOfContracts;
+    public LeaseCompany(String name, int numberOfVehicles, int numberOfContracts) {
+        this.name = name;
+        this.vehicles = new Vehicle[numberOfVehicles];
+        this.contracts = new Contract[numberOfContracts];
+        this.maxNumberOfVehicles = numberOfVehicles;
+        this.maxNumberOfContracts = numberOfContracts;
 
     }
 

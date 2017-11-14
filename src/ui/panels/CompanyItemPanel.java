@@ -20,7 +20,6 @@ public class CompanyItemPanel extends Panel{
     private List employeeList,leaseCompanieList;
     private GridBagLayout layout;
     Company companyClass = new Company();
-    LeaseCompany ls = new LeaseCompany(5,5);
     final TextField fullNameText,leaseCompanyText;
 
 
@@ -131,8 +130,8 @@ public class CompanyItemPanel extends Panel{
             @Override
             public void actionPerformed(ActionEvent e) {
                 String company = leaseCompanyText.getText();
-                /// Missing Add lease company
-                addLeaseCompanyToList(company);
+                LeaseCompany ls = new LeaseCompany(company,5,5);
+                addLeaseCompanyToList(company,ls);
             }
         });
 
@@ -156,9 +155,10 @@ public class CompanyItemPanel extends Panel{
         employeeList.remove(index);
     }
 
-    public void addLeaseCompanyToList(String ls)
+    public void addLeaseCompanyToList(String name,LeaseCompany ls)
     {
-        leaseCompanieList.add(ls);
+        leaseCompanieList.add(name);
+        companyClass.addLeaseCompanies(ls);
     }
 
     public void delLeaseCompanyFromList(int index)

@@ -11,10 +11,17 @@ public class Company {
     int currentNumberOfEmployees = 0;
     int maxNumberOfEmployees = 10;
 
+    int currentNumberOfLeaseCompanys = 0;
+    int maxNumberOfLeaseCompanys = 10;
+
     public Company(){
         maxNumberOfEmployees = 10;
         currentNumberOfEmployees = 0;
+        maxNumberOfLeaseCompanys = 10;
+        currentNumberOfLeaseCompanys = 0;
+
         employees = new Employee[10];
+        leaseCompanies = new LeaseCompany[10];
 
 //        employees = new Employee[]{
 //                new Employee("Daniel", "Oliemans",5,this),
@@ -28,11 +35,34 @@ public class Company {
 //        };
 
         employees = new Employee[10];
-        leaseCompanies=new LeaseCompany[]{new LeaseCompany(100,100)};
+//        leaseCompanies = new LeaseCompany[]{new LeaseCompany(" ",100,100)};
     }
 
     public LeaseCompany[] getLeaseCompanies() {
         return leaseCompanies;
+    }
+
+    public void addLeaseCompanies(LeaseCompany ls) {
+        if (currentNumberOfLeaseCompanys < maxNumberOfLeaseCompanys) {
+            leaseCompanies[currentNumberOfLeaseCompanys] = ls;
+            currentNumberOfLeaseCompanys++;
+        } else {
+            System.out.println("Meer lease company's niet mogelijk. Check het wetboek at artikel 315, lid x.");
+        }
+    }
+
+    public void removeLeaseCompanies(LeaseCompany ls) {
+        for (int i = 0; i < currentNumberOfLeaseCompanys; i++) {
+            if (leaseCompanies[i] == ls) {
+                leaseCompanies[i] = leaseCompanies[currentNumberOfLeaseCompanys - 1];
+                leaseCompanies[currentNumberOfLeaseCompanys - 1] = null;
+                // update current number of contracts
+                currentNumberOfLeaseCompanys--;
+                // Exit function; we're done
+                return;
+            }
+        }
+        System.out.println("Contract not found");
     }
 
     public Employee[] getEmployeeList() {
