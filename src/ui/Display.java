@@ -1,15 +1,10 @@
 package ui;
 
-import ui.panels.CompanyItemPanel;
-import ui.panels.MainPanel;
+import ui.panels.TechCompany;
 
-import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
-import java.beans.PropertyChangeListener;
 
 public class Display {
 
@@ -32,7 +27,7 @@ public class Display {
             }
         });
 
-        currentPanel = new CompanyItemPanel();
+        currentPanel = new TechCompany();
 
         frame.add(currentPanel);
 

@@ -12,7 +12,7 @@ import company.*;
 import leasecompany.*;
 
 
-public class CompanyItemPanel extends Panel{
+public class TechCompany extends Panel{
 
 
     private Button addEmployee_B,delEmployee_B,addLeaseCompany_B,delLeaseCompany_B;
@@ -23,7 +23,7 @@ public class CompanyItemPanel extends Panel{
     final TextField fullName_Text,leaseCompany_Text;
 
 
-    public CompanyItemPanel() {
+    public TechCompany() {
 
         employee_Label = new Label("Employees ");
         leaseCompany_Label = new Label("Lease company's ");
@@ -98,6 +98,7 @@ public class CompanyItemPanel extends Panel{
         gbc.gridy = 3;
         this.add(addLeaseCompany_B,gbc);
 
+        // button function
         Handlers();
     }
 
@@ -140,24 +141,24 @@ public class CompanyItemPanel extends Panel{
         });
     }
 
-    // add and delete called from buttons
+    // add a employee when addEmployee_B is Pressed
     public void addEmployeeToList(String emp,Employee employee)
     {
         employeeList.add(emp);
         companyClass.addEmployee(employee);
     }
-
+    // delete a employee when delEmployee_B is Pressed
     public void delEmployeeFromList(int index)
     {
         employeeList.remove(index);
     }
-
+    // add a lease company when addLeaseCompany_B  is Pressed
     public void addLeaseCompanyToList(String name,LeaseCompany ls)
     {
         leaseCompanieList.add(name);
         companyClass.addLeaseCompanies(ls);
     }
-
+    // delete a lease company when delLeaseCompany_B  is Pressed
     public void delLeaseCompanyFromList(int index)
     {
         leaseCompanieList.remove(index);
