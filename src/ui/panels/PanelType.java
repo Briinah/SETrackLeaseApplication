@@ -9,8 +9,8 @@ import java.awt.*;
  */
 public enum PanelType {
     MainPanel(new MainPanel(), "MainPanel"),
-    TechCompanyListPanel(new CompanyListPanel(), "TechCompanyListPanel"),
-    CompanyItemPanel(new CompanyItemPanel(), "CompanyItemPanel"),
+    TechCompanyListPanel(new TechCompanyListPanel(), "TechCompanyListPanel"),
+    TechCompanyItemPanel(new TechCompanyItemPanel(), "TechCompanyItemPanel"),
     LeaseCompanyListPanel(new LeaseCompanyListPanel(), "LeaseCompanyListPanel"),
     LeaseCompanyItemPanel(new LeaseCompanyItemPanel(), "LeaseCompanyItemPanel");
 

@@ -2,14 +2,11 @@ package ui;
 
 import ui.panels.MainPanel;
 import ui.panels.PanelType;
+import ui.panels.TechCompanyListPanel;
 
-import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
-import java.beans.PropertyChangeListener;
 
 public class Display {
 
@@ -61,6 +58,10 @@ public class Display {
         }
     }
 
+    /**
+     * Switch current panel to an new panel defined by panel type
+     * @param panelType the panel which is switched to
+     */
     public void switchToPanel(PanelType panelType){
         // No need for a change if we are where we want to be
         if(panelType == currentPanelType) return;

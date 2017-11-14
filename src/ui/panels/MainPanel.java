@@ -10,7 +10,7 @@ import java.awt.event.ActionListener;
 
 /**
  * Implements the main menu panel
- * Author: Carolien
+ * @author Carolien
  */
 public class MainPanel extends Panel {
 
@@ -57,6 +57,7 @@ public class MainPanel extends Panel {
         companyButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+
                 System.out.println("Clicked company button!");
                 DisplayManager.getInstance().setCurrentPanel(PanelType.TechCompanyListPanel);
             }
@@ -66,6 +67,7 @@ public class MainPanel extends Panel {
         employeeButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+
                 System.out.println("Clicked employee button!");
             }
         });
@@ -74,7 +76,9 @@ public class MainPanel extends Panel {
         leaseCompanyButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+
                 System.out.println("Clicked lease company button!");
+                DisplayManager.getInstance().setCurrentPanel(PanelType.LeaseCompanyListPanel);
             }
         });
     }
