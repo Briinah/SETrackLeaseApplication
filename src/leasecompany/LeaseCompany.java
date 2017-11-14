@@ -19,15 +19,19 @@ public class LeaseCompany {
     int maxNumberOfVehicles, maxNumberOfContracts;
     int currentNumberOfVehicles = 0;
     int currentNumberOfContracts = 0;
+    private String name;
 
-    public LeaseCompany(int numberOfVehicles, int numberOfContracts) {
+    public LeaseCompany(int numberOfVehicles, int numberOfContracts, String name) {
         vehicles = new Vehicle[numberOfVehicles];
         contracts = new Contract[numberOfContracts];
         maxNumberOfVehicles = numberOfVehicles;
         maxNumberOfContracts = numberOfContracts;
-
+        this.name = name;
     }
 
+    public String getName(){
+        return this.name;
+    }
 
     public void addVehicle(Vehicle vehicle) {
         if (currentNumberOfVehicles < maxNumberOfVehicles) {
@@ -188,6 +192,17 @@ public class LeaseCompany {
         for(Employee employee : getEmployeesWithContract()){
             System.out.println(employee.getFullName());
         }
+    }
+
+    // Checks if the employee has a car here.
+    public boolean checkIfEmployeeHasCarHere(Employee e) {
+
+        for(int i = 0; i < currentNumberOfContracts; i++) {
+            if(contracts[i].getEmployee() == e){
+                return true;
+            }
+        }
+        return false;
     }
 
 
