@@ -2,8 +2,11 @@ package vehicles;
 
 import java.time.LocalDate;
 
+//A Truck. In addition to the Vehicle superclass, it has a boolean hasSleepingSpace an amountOfTrailers int and a Cargotype.
+
 public class Truck extends Vehicle {
 
+    //variables and set and get methods
     private boolean hasSleepingSpace;
     private int amountOfTrailers;
     private CargoType cargoType;

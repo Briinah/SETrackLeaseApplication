@@ -4,8 +4,10 @@ import company.LeaseCompany;
 import company.TechCompany;
 import vehicles.Vehicle;
 
+//a employee of the companies
 public class Employee {
 
+    //employee variables and get and set methods
     String firstName;
     String lastName;
     boolean contract; //Initialises to false
@@ -32,6 +34,7 @@ public class Employee {
     }
 
 
+    //returns the contract of this employee
     public Contract getContract() {
         for(LeaseCompany lc : techCompany.getLeaseCompanies()){
             if(lc.getContractOfEmployee(this) != null){
