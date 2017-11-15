@@ -59,7 +59,6 @@ public class LeaseCompany extends Company {
                 contracts[currentNumberOfContracts - 1] = null;
                 // update current number of contracts
                 currentNumberOfContracts--;
-                contract.endContract();
                 // Exit function; we're done
                 return;
             }
