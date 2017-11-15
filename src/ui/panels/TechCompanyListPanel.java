@@ -56,7 +56,7 @@ public class TechCompanyListPanel extends Panel {
         gbc.gridx = 0;
         gbc.gridy = 1;
         this.add(textField, gbc);
-        
+
         // Add button
         addButton = new Button("Add company");
         addButton.setVisible(true);

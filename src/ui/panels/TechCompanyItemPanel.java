@@ -6,6 +6,7 @@ import java.awt.*;
 import java.awt.List;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 import company.*;
 import ui.DisplayManager;
@@ -16,6 +17,7 @@ public class TechCompanyItemPanel extends ItemPanel{
     private Button addEmployee_B,delEmployee_B,addLeaseCompany_B,delLeaseCompany_B, backButton;
     private Label employee_Label, leaseCompany_Label;
     private List employeeList, leaseCompanyList;
+    private LeaseCompany[] lcObjectList;
     private GridBagLayout layout;
     final TextField fullName_Text,leaseCompany_Text, employee_leaselevel;
 
@@ -168,9 +170,15 @@ public class TechCompanyItemPanel extends ItemPanel{
 
     // Set techcompany
     @Override
-    public void setCompany(Company techCompany){
+    public void setCompany(Company techCompany) {
         this.company = techCompany;
 
+        fillEmployeeList();
+        fillLeaseCompanyList();
+    }
+
+    // Fills the employeelist with existing employees
+    private void fillEmployeeList(){
         // First delete existing employees
         employeeList.removeAll();
         // Add existing employees to the list
@@ -180,12 +188,20 @@ public class TechCompanyItemPanel extends ItemPanel{
         }
     }
 
+
+    // Fills the list item with lease company names that already exist
+    private void fillLeaseCompanyList() {
+        for (int i = 0; i < ((TechCompany) company).getCurrentNumberOfLeaseCompanies(); i++){
+            leaseCompanyList.add(((TechCompany) company).getLeaseCompanies()[i].getName());
+        }
+    }
+
     // add a employee when addEmployee_B is Pressed
-    public void addEmployeeToList(String emp,Employee employee)
-    {
+    public void addEmployeeToList(String emp,Employee employee){
         employeeList.add(emp);
         company.addEmployee(employee);
     }
+
     // delete a employee when delEmployee_B is Pressed
     public void delEmployeeFromList(int index)
     {
@@ -194,14 +210,21 @@ public class TechCompanyItemPanel extends ItemPanel{
         company.removeEmployee(company.getEmployeeList()[index]);
         employeeList.remove(index);
     }
+
     // add a lease company when addLeaseCompany_B  is Pressed
-    public void addLeaseCompanyToList(String name,LeaseCompany ls)
-    {
+    public void addLeaseCompanyToList(String name,LeaseCompany ls){
+        if (name.equals("")){
+            System.out.println("Cannot add company without a name");
+            return;
+        }
         leaseCompanyList.add(name);
+        ((TechCompany)company).addLeaseCompany(ls);
+
     }
     // delete a lease company when delLeaseCompany_B  is Pressed
     public void delLeaseCompanyFromList(int index)
     {
         leaseCompanyList.remove(index);
+        ((TechCompany)company).removeLeaseCompany(((TechCompany)company).getLeaseCompanies()[index]);
     }
 }

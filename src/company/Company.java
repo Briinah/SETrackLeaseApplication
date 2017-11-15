@@ -48,7 +48,7 @@ public abstract class Company {
             }
         }
         //If employee does not exist, print message
-        System.out.println("Contract not found");
+        System.out.println("Employee not found");
     }
 
 
