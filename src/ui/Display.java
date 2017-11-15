@@ -1,8 +1,6 @@
 package ui;
 
-import ui.panels.MainPanel;
 import ui.panels.PanelType;
-import ui.panels.TechCompanyListPanel;
 
 import java.awt.*;
 import java.awt.event.WindowAdapter;
@@ -42,6 +40,7 @@ public class Display {
 
         // Set the currentPanelType to show
         cardLayout.show(panelContainer, currentPanelType.getName());
+
 
         // Add the panelContainer
         frame.add(panelContainer);
