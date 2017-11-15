@@ -129,8 +129,22 @@ public class TechCompanyItemPanel extends ItemPanel{
                 if(!name.contains(" "))
                     return;
                 String[] fullName = name.split(" ");
-                Employee employee = new Employee(fullName[0],fullName[1], Integer.parseInt(employee_leaselevel.getText()));
+
+                // get leaselevel
+                int leaseLevel;
+                try {
+                    leaseLevel = Integer.parseInt(employee_leaselevel.getText());
+                }
+                catch (NumberFormatException ne){
+                    // Do nothing at the time.
+                    System.out.println("Please enter a number!!");
+                    return;
+                }
+
+                Employee employee = new Employee(fullName[0],fullName[1], leaseLevel);
                 addEmployeeToList(employee.getFullName(),employee);
+                fullName_Text.setText("");
+                employee_leaselevel.setText("");
             }
         });
 
@@ -147,6 +161,7 @@ public class TechCompanyItemPanel extends ItemPanel{
                 String company = leaseCompany_Text.getText();
                 LeaseCompany ls = new LeaseCompany(5,5, company);
                 addLeaseCompanyToList(company,ls);
+                leaseCompany_Text.setText("");
             }
         });
 
@@ -191,6 +206,7 @@ public class TechCompanyItemPanel extends ItemPanel{
 
     // Fills the list item with lease company names that already exist
     private void fillLeaseCompanyList() {
+        leaseCompanyList.removeAll();
         for (int i = 0; i < ((TechCompany) company).getCurrentNumberOfLeaseCompanies(); i++){
             leaseCompanyList.add(((TechCompany) company).getLeaseCompanies()[i].getName());
         }
