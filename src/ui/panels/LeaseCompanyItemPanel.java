@@ -2,5 +2,5 @@ package ui.panels;
 
 import java.awt.*;
 
-public class LeaseCompanyItemPanel extends Panel {
+public class LeaseCompanyItemPanel extends ItemPanel {
 }
