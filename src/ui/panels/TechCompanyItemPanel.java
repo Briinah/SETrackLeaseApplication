@@ -162,10 +162,8 @@ public class TechCompanyItemPanel extends ItemPanel{
 
     // Fills the list item with lease company names that already exist
     private void fillLeaseCompanyList() {
-        if (((TechCompany) company).getCurrentNumberOfLeaseCompanies() <= 0)
-            return;
-        for (LeaseCompany lc : ((TechCompany) company).getLeaseCompanies()) {
-            leaseCompanyList.add(lc.getName());
+        for (int i = 0; i < ((TechCompany) company).getCurrentNumberOfLeaseCompanies(); i++){
+            leaseCompanyList.add(((TechCompany) company).getLeaseCompanies()[i].getName());
         }
     }
 
