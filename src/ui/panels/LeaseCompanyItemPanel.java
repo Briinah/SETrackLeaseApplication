@@ -6,7 +6,8 @@ import java.awt.*;
 
 public class LeaseCompanyItemPanel extends ItemPanel {
 
-    public void setCompany(Company company){
-        this.company = company;
+    @Override
+    public void setCompany(Company company) {
+        // TODO
     }
 }
