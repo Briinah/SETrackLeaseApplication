@@ -154,7 +154,10 @@ public class TechCompanyListPanel extends Panel {
                 }
 
                 System.out.println("Edit: "+selectedCompany.getName());
+                // Set title
                 ((ItemPanel)PanelType.TechCompanyItemPanel.getPanel()).setTitle(selectedCompany.getName());
+                // Set techCompany
+                ((ItemPanel)PanelType.TechCompanyItemPanel.getPanel()).setCompany(selectedCompany);
                 DisplayManager.getInstance().setCurrentPanel(PanelType.TechCompanyItemPanel);
             }
         });
