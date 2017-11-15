@@ -17,20 +17,21 @@ public class TechCompanyItemPanel extends ItemPanel{
     private Label employee_Label, leaseCompany_Label;
     private List employeeList, leaseCompanyList;
     private GridBagLayout layout;
-    final TextField fullName_Text,leaseCompany_Text;
+    final TextField fullName_Text,leaseCompany_Text, employee_leaselevel;
 
     public TechCompanyItemPanel(){
         super();
 
         employee_Label = new Label("Employees ");
-        leaseCompany_Label = new Label("Lease company's ");
+        leaseCompany_Label = new Label("Lease Companies");
         addEmployee_B = new Button("Add employee");
         delEmployee_B = new Button("Delete employee");
         addLeaseCompany_B = new Button("Add company");
         delLeaseCompany_B = new Button("Delete company");
         backButton = new Button("Return");
         fullName_Text = new TextField(25);
-        leaseCompany_Text = new TextField(25);
+        employee_leaselevel = new TextField(25);
+        leaseCompany_Text = new TextField(4);
 
         employeeList = new List();
         leaseCompanyList = new List();
@@ -46,6 +47,7 @@ public class TechCompanyItemPanel extends ItemPanel{
         employeeList.setVisible(true);
         leaseCompanyList.setVisible(true);
         fullName_Text.setVisible(true);
+        employee_leaselevel.setVisible(true);
 
         gbc.fill = GridBagConstraints.HORIZONTAL;
         gbc.gridx = 0; gbc.gridy = 0;
@@ -72,6 +74,11 @@ public class TechCompanyItemPanel extends ItemPanel{
         gbc.gridx = 0;
         gbc.gridy = 3;
         this.add(fullName_Text,gbc);
+
+        gbc.gridx = 0;
+        gbc.gridy = 4;
+        this.add(employee_leaselevel, gbc);
+
         gbc.gridx = 4;
         gbc.gridy = 3;
         this.add(leaseCompany_Text,gbc);
@@ -80,12 +87,12 @@ public class TechCompanyItemPanel extends ItemPanel{
         gbc.insets = new Insets(10,0,0,110);
         gbc.ipady = 10;
         gbc.gridx = 0;
-        gbc.gridy = 4;
+        gbc.gridy = 5;
         this.add(delEmployee_B,gbc);
 
         gbc.insets = new Insets(10,110,0,0);
         gbc.gridx = 0;
-        gbc.gridy = 4;
+        gbc.gridy = 5;
         this.add(addEmployee_B,gbc);
 
         gbc.insets = new Insets(10,0,0,105);
@@ -101,8 +108,8 @@ public class TechCompanyItemPanel extends ItemPanel{
 
         gbc.insets = new Insets(10,10,10,10);
         gbc.fill= GridBagConstraints.REMAINDER;
-        gbc.gridx = 0;
-        gbc.gridy = 5;
+        gbc.gridx = 3;
+        gbc.gridy = 7;
         this.add(backButton, gbc);
 
         // button function
@@ -120,7 +127,7 @@ public class TechCompanyItemPanel extends ItemPanel{
                 if(!name.contains(" "))
                     return;
                 String[] fullName = name.split(" ");
-                Employee employee = new Employee(fullName[0],fullName[1],1);
+                Employee employee = new Employee(fullName[0],fullName[1], Integer.parseInt(employee_leaselevel.getText()));
                 addEmployeeToList(employee.getFullName(),employee);
             }
         });
@@ -177,10 +184,14 @@ public class TechCompanyItemPanel extends ItemPanel{
     public void addEmployeeToList(String emp,Employee employee)
     {
         employeeList.add(emp);
+        company.addEmployee(employee);
     }
     // delete a employee when delEmployee_B is Pressed
     public void delEmployeeFromList(int index)
     {
+        // Catch not-selected case
+        if(index == -1) return;
+        company.removeEmployee(company.getEmployeeList()[index]);
         employeeList.remove(index);
     }
     // add a lease company when addLeaseCompany_B  is Pressed

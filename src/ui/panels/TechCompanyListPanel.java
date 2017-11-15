@@ -22,7 +22,6 @@ public class TechCompanyListPanel extends Panel {
     private GridBagConstraints gbc;
     private TextField textField;
     private Label label;
-    private StringBuilder sb;
     private TechCompany[] techComp;
     private TechCompany selectedCompany;
     private int index = 0;
@@ -57,10 +56,7 @@ public class TechCompanyListPanel extends Panel {
         gbc.gridx = 0;
         gbc.gridy = 1;
         this.add(textField, gbc);
-
-        // Start StringBuilder on the TextField
-        sb = new StringBuilder();
-
+        
         // Add button
         addButton = new Button("Add company");
         addButton.setVisible(true);
@@ -97,8 +93,6 @@ public class TechCompanyListPanel extends Panel {
                     handleInput();
                     return;
                 }
-                //If other characters are typed, append them to the StringBuilder
-                sb.append(e.getKeyChar());
             }
 
             @Override
@@ -158,16 +152,16 @@ public class TechCompanyListPanel extends Panel {
 
     private void handleInput(){
         // If the StringBuilder is empty, return
-        if(sb.length() == 0 || index > 9){
+        String companyName = textField.getText();
+        if(companyName.length() == 0 || index > 9){
             return;
         }
 
         // Otherwise, add the company to the list
-        System.out.println("Added: "+sb.toString());
-        list.add(sb.toString());
-        techComp[index] = new TechCompany(sb.toString());
+        System.out.println("Added: "+ companyName);
+        list.add(companyName);
+        techComp[index] = new TechCompany(companyName);
         index++;
-        sb.setLength(0);
         textField.setText("");
     }
 }
