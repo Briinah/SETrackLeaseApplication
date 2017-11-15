@@ -1,11 +1,15 @@
 package ui.panels;
 
+import company.Company;
+import company.TechCompany;
+
 import java.awt.*;
 
 public abstract class ItemPanel extends Panel {
 
     protected Label title;
     Font myFont = new Font("myfont", Font.BOLD, 20);
+    protected Company company;
 
     public ItemPanel(){
         title = new Label("Woooh");
@@ -18,4 +22,6 @@ public abstract class ItemPanel extends Panel {
 
         this.repaint();
     }
+
+    public abstract void setCompany(Company company);
 }

@@ -158,6 +158,12 @@ public class TechCompanyItemPanel extends ItemPanel{
         });
     }
 
+    // Set techcompany
+    public void setCompany(Company techCompany){
+        this.company = techCompany;
+        // TODO : Initialize Employee and LC lists with this company!!
+    }
+
     // add a employee when addEmployee_B is Pressed
     public void addEmployeeToList(String emp,Employee employee)
     {
