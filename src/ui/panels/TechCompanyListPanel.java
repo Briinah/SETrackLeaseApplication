@@ -1,5 +1,8 @@
 package ui.panels;
 
+import ui.Display;
+import ui.DisplayManager;
+
 import java.awt.*;
 import java.awt.event.*;
 
@@ -11,6 +14,7 @@ public class TechCompanyListPanel extends Panel {
 
     private Button addButton;
     private Button editButton;
+    private Button backButton;
     private GridBagLayout gridBagLayout;
     private List list;
     private GridBagConstraints gbc;
@@ -70,6 +74,13 @@ public class TechCompanyListPanel extends Panel {
         gbc.gridx = 0;
         gbc.gridy = 4;
         this.add(editButton, gbc);
+
+        // Edit button
+        backButton = new Button("Return");
+        backButton.setVisible(true);
+        gbc.gridx = 0;
+        gbc.gridy = 5;
+        this.add(backButton, gbc);
 
         // Add a Key Listener to the TextField that keeps track of the characters entered
         textField.addKeyListener(new KeyListener() {
@@ -134,8 +145,18 @@ public class TechCompanyListPanel extends Panel {
                 }
 
                 System.out.println("Edit: "+selectedCompany);
-                // Ga naar Jeffrey's scherm en geef 'selectedCompany' mee!
+                ((ItemPanel)PanelType.TechCompanyItemPanel.getPanel()).setTitle(selectedCompany);
+                DisplayManager.getInstance().setCurrentPanel(PanelType.TechCompanyItemPanel);
+            }
+        });
 
+        // set back button event
+        backButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+                System.out.println("Clicked company button!");
+                DisplayManager.getInstance().setCurrentPanel(PanelType.MainPanel);
             }
         });
 

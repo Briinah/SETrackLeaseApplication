@@ -1,5 +1,7 @@
 package ui;
 
+import sun.util.resources.cldr.ebu.CurrencyNames_ebu;
+import ui.panels.ItemPanel;
 import ui.panels.PanelType;
 
 import java.awt.*;
@@ -65,6 +67,7 @@ public class Display {
         // No need for a change if we are where we want to be
         if(panelType == currentPanelType) return;
         currentPanelType = panelType;
+        // If next panel is an item panel, set item name
         cardLayout.show(panelContainer, panelType.getName());
     }
 }

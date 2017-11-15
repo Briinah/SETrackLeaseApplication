@@ -25,7 +25,6 @@ public class DisplayManager {
     public void setCurrentPanel(PanelType panelType){
         display.switchToPanel(panelType);
     }
-
     private Display display;
 
 }

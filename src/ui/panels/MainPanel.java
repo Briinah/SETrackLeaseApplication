@@ -43,10 +43,10 @@ public class MainPanel extends Panel {
         gbc.gridy = 1;
         this.add(companyButton, gbc);
 
-        employeeButton = new MenuButton("Employees");
-        gbc.insets = new Insets(10, 10, 10, 10);
-        gbc.gridy = 2;
-        this.add(employeeButton, gbc);
+     //   employeeButton = new MenuButton("Employees");
+     //   gbc.insets = new Insets(10, 10, 10, 10);
+     //   gbc.gridy = 2;
+     //   this.add(employeeButton, gbc);
 
         leaseCompanyButton = new MenuButton("Lease Companies");
         gbc.gridy = 34;
@@ -63,7 +63,7 @@ public class MainPanel extends Panel {
             }
         });
 
-        // set employee button event
+   /*     // set employee button event
         employeeButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -71,6 +71,7 @@ public class MainPanel extends Panel {
                 System.out.println("Clicked employee button!");
             }
         });
+        */
 
         // set lease company button event
         leaseCompanyButton.addActionListener(new ActionListener() {
