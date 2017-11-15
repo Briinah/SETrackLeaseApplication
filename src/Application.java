@@ -24,7 +24,7 @@ public class Application {
 
 
         //Create techcompanies.
-        LeaseCompany leaseCompany = new LeaseCompany(100,100);
+        LeaseCompany leaseCompany = new LeaseCompany(100,100, "HappyLease");
 
         //Add leascompany to techcompany.
         techCompany.addLeaseCompany(leaseCompany);
