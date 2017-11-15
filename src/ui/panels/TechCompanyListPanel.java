@@ -94,14 +94,7 @@ public class TechCompanyListPanel extends Panel {
             @Override
             public void keyTyped(KeyEvent e) {
                 if(e.getKeyChar() == KeyEvent.VK_ENTER){
-                    // If enter is pressed and StringBuilder is empty, return
-                    if(sb.length() == 0)
-                        return;
-                    //Otherwise, process input
-                    System.out.println("Added: "+sb.toString());
-                    list.add(sb.toString());
-                    sb.setLength(0);
-                    textField.setText("");
+                    handleInput();
                     return;
                 }
                 //If other characters are typed, append them to the StringBuilder
@@ -122,18 +115,7 @@ public class TechCompanyListPanel extends Panel {
         addButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                // If the StringBuilder is empty, return
-                if(sb.length() == 0 || index > 9){
-                    return;
-                }
-
-                // Otherwise, add the company to the list
-                System.out.println("Added: "+sb.toString());
-                list.add(sb.toString());
-                techComp[index] = new TechCompany(sb.toString());
-                index++;
-                sb.setLength(0);
-                textField.setText("");
+                handleInput();
             }
         });
 
@@ -154,7 +136,10 @@ public class TechCompanyListPanel extends Panel {
                 }
 
                 System.out.println("Edit: "+selectedCompany.getName());
+                // Set title
                 ((ItemPanel)PanelType.TechCompanyItemPanel.getPanel()).setTitle(selectedCompany.getName());
+                // Set techCompany
+                ((ItemPanel)PanelType.TechCompanyItemPanel.getPanel()).setCompany(selectedCompany);
                 DisplayManager.getInstance().setCurrentPanel(PanelType.TechCompanyItemPanel);
             }
         });
@@ -169,5 +154,20 @@ public class TechCompanyListPanel extends Panel {
             }
         });
 
+    } // Constructor
+
+    private void handleInput(){
+        // If the StringBuilder is empty, return
+        if(sb.length() == 0 || index > 9){
+            return;
+        }
+
+        // Otherwise, add the company to the list
+        System.out.println("Added: "+sb.toString());
+        list.add(sb.toString());
+        techComp[index] = new TechCompany(sb.toString());
+        index++;
+        sb.setLength(0);
+        textField.setText("");
     }
 }
