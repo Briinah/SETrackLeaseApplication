@@ -20,11 +20,11 @@ public class Truck extends Vehicle {
 
     public String getDetails() {
 
-        String details = "This " + getVehicleType() + " is a " + brand + " " + type + "\n";
-        details += "\t" + "License plate: " + licensePlate + "\n";
-        details += "\t" + "Current mileage: " + mileageInKm + "\n";
-        details += "\t" + "Manufacture date: " + manufactureDate + "\n";
-        details += "\t" + "Fuel type: " + fuelType + "\n";
+        String details = "This " + getVehicleType() + " is a " + getBrand() + " " + getType() + "\n";
+        details += "\t" + "License plate: " + getLicensePlate() + "\n";
+        details += "\t" + "Current mileage: " + getMileageInKm() + "\n";
+        details += "\t" + "Manufacture date: " + getManufactureDate() + "\n";
+        details += "\t" + "Fuel type: " + getFuelType() + "\n";
         details += "\t" + "Sleeping space: " + hasSleepingSpace + "\n";
         details += "\t" + "Amount of trailers: " + this.amountOfTrailers + "\n";
         details += "\t" + "Cargo type: " + cargoType + "\n";
