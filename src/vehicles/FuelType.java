@@ -1,4 +1,4 @@
-package leasecompany.vehicles;
+package vehicles;
 
 // represents different types of fuel
 public enum FuelType {

@@ -1,12 +1,10 @@
 import company.*;
-import leasecompany.Contract;
-import leasecompany.LeaseCompany;
-import leasecompany.vehicles.Car;
-import leasecompany.vehicles.FuelType;
-import leasecompany.vehicles.Motorcycle;
-import leasecompany.vehicles.Vehicle;
-import java.time.LocalDate;
+import company.modules.Contract;
+import company.LeaseCompany;
+import company.modules.Employee;
+import vehicles.*;
 
+import java.time.LocalDate;
 
 public class Application {
 
@@ -18,37 +16,51 @@ public class Application {
 
     public static void setDatabase() // After startup create database.
     {
-        //Create companies.
-        Company company = new Company();
-        LeaseCompany ls = company.getLeaseCompanies()[0];
+        //Create leasecompanies.
+        TechCompany techCompany = new TechCompany("test");
 
-        //Create omployees.
-        Employee jeffrey = new Employee("Jeffrey","Scheidelaar",1,company);
-        Employee Bas = new Employee("Bas","Weeterings",1,company);
-        Employee Koen = new Employee("Koen","Weeterings",1,company);
-        company.addEmployee(jeffrey);
-        company.addEmployee(Bas);
-        company.addEmployee(Koen);
+
+        //Create techcompanies.
+        LeaseCompany leaseCompany = new LeaseCompany(100,100, "HappyLease");
+
+        //Add leascompany to techcompany.
+        techCompany.addLeaseCompany(leaseCompany);
+
+        //Create employees.
+        Employee jeffrey = new Employee("Jeffrey","Scheidelaar",1);
+        Employee Bas = new Employee("Bas","Weeterings",1);
+        Employee Koen = new Employee("Koen","Weeterings",1);
+        techCompany.addEmployee(jeffrey);
+        techCompany.addEmployee(Bas);
+        techCompany.addEmployee(Koen);
 
         // Create vehicles.
         Vehicle BMWBas = new Car("BMW","I3","GHFD45",LocalDate.of(2015,2,10),22, FuelType.Gasoline);
         Vehicle AudiJeff = new Car("Audi","A1","HH88FF",LocalDate.of(2016,8,14),22, FuelType.Diesel);
+
+        // Truck
+        Truck truck = new Truck ("Mercedes", "B3", "GHJXD4",LocalDate.of(2016, 8, 5), 87, FuelType.Electric);
+        truck.setHasSleepingSpace(false);
+        truck.setCargoType(CargoType.transporter);
+        truck.setAmountOfTrailers(2);
+
         Vehicle RandomVehicle = new Car("BMW","A1","HH88FF",LocalDate.of(2016,8,14),22, FuelType.Diesel);
         Motorcycle motorcycle = new Motorcycle("BMW","A1","HH88FF",LocalDate.of(2016,8,14),22, FuelType.Gasoline);
         motorcycle.setHasSideCar(true);
-        ls.addVehicle(BMWBas);
-        ls.addVehicle(AudiJeff);
-        ls.addVehicle(RandomVehicle);
-        ls.addVehicle(motorcycle);
+
+        leaseCompany.addVehicle(BMWBas);
+        leaseCompany.addVehicle(AudiJeff);
+        leaseCompany.addVehicle(RandomVehicle);
+        leaseCompany.addVehicle(motorcycle);
+
         //create contracts.
         Contract conJeff = new Contract(LocalDate.now(),LocalDate.of(2021,2,7),jeffrey,AudiJeff);
         Contract conBas = new Contract(LocalDate.now(),LocalDate.of(2021,2,11),Bas,BMWBas);
         //Add contract to leasecompany.
-        ls.addContract(conJeff);
-        ls.addContract(conBas);
+        leaseCompany.addContract(conJeff);
+        leaseCompany.addContract(conBas);
 
-        Koen.printAvailableVehicles();
-
+        techCompany.printAvailableVehicles();
     }
 }
 

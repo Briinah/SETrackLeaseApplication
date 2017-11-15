@@ -1,9 +1,12 @@
-package leasecompany.vehicles;
+package vehicles;
 
 import java.time.LocalDate;
 
+//A car. In addition to the Vehicle superclass, it has a boolean hasTowbar and int trunkSpace.
+
 public class Car extends Vehicle{
 
+    //variables and set and get methods
     private boolean hasTowbar;
     private int trunkSpace;
 
@@ -14,11 +17,11 @@ public class Car extends Vehicle{
 
     public String getDetails(){
 
-        String details = "This " + getVehicleType() + " is a " + brand + " " + type + "\n";
-        details += "\t" + "License plate: " + licensePlate + "\n";
-        details += "\t" + "Current mileage: " + mileageInKm + "\n";
-        details += "\t" + "Manufacture date: " + manufactureDate + "\n";
-        details += "\t" + "Fuel type: " + fuelType + "\n";
+        String details = "This " + getVehicleType() + " is a " + getBrand() + " " + getType() + "\n";
+        details += "\t" + "License plate: " + getLicensePlate() + "\n";
+        details += "\t" + "Current mileage: " + getMileageInKm() + "\n";
+        details += "\t" + "Manufacture date: " + getManufactureDate() + "\n";
+        details += "\t" + "Fuel type: " + getFuelType() + "\n";
         details += "\t" + "Tow bar: " + hasTowbar + "\n";
         details += "\t" + "Trunk space: " + trunkSpace + "\n";
 

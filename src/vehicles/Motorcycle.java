@@ -1,11 +1,12 @@
-package leasecompany.vehicles;
-
-import leasecompany.vehicles.FuelType;
+package vehicles;
 
 import java.time.LocalDate;
 
+//A motercycle. In addition to the Vehicle superclass, it has two booleans hasSideCar and hasSaddleBags.
+
 public class Motorcycle extends Vehicle {
 
+    //variables and set and get methods
     private boolean hasSideCar;
     private boolean hasSaddleBags;
 
@@ -15,11 +16,11 @@ public class Motorcycle extends Vehicle {
 
     public String getDetails(){
 
-        String details = "This " + getVehicleType() + " is a " + brand + " " + type + "\n";
-        details += "\t" + "License plate: " + licensePlate + "\n";
-        details += "\t" + "Current mileage: " + mileageInKm + "\n";
-        details += "\t" + "Manufacture date: " + manufactureDate + "\n";
-        details += "\t" + "Fuel type: " + fuelType + "\n";
+        String details = "This " + getVehicleType() + " is a " + getBrand() + " " + getType() + "\n";
+        details += "\t" + "License plate: " + getLicensePlate() + "\n";
+        details += "\t" + "Current mileage: " + getMileageInKm() + "\n";
+        details += "\t" + "Manufacture date: " + getManufactureDate() + "\n";
+        details += "\t" + "Fuel type: " + getFuelType() + "\n";
         details += "\t" + "Side car: " + hasSideCar + "\n";
         details += "\t" + "Saddle bags: " + hasSaddleBags + "\n";
 
