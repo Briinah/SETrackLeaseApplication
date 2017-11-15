@@ -12,7 +12,13 @@ public abstract class Company {
 
     //Getter for the full Employee list.
     public Employee[] getEmployeeList() {
-        return this.employees;
+        // Make sure that we only return an array with length |employees|
+        // In other words, shorten the array not to contain NULL.
+        Employee[] returnList = new Employee[currentNumberOfEmployees];
+        for (int i = 0; i < currentNumberOfEmployees; i++) {
+            returnList[i] = employees[i];
+        }
+        return returnList;
     }
 
     //Add an employee to the list.
@@ -42,7 +48,7 @@ public abstract class Company {
             }
         }
         //If employee does not exist, print message
-        System.out.println("Contract not found");
+        System.out.println("Employee not found");
     }
 
 

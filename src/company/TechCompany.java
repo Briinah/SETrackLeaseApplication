@@ -4,6 +4,8 @@ import company.modules.Contract;
 import company.modules.Employee;
 import vehicles.Vehicle;
 
+import java.rmi.dgc.Lease;
+
 //A "normal" company, the leasecompanies are clients to the "normal" company. In addition to Company superclass, it has a list of available leasecompanies.
 
 public class TechCompany extends Company {
@@ -12,10 +14,19 @@ public class TechCompany extends Company {
     //Max number of leasecompanies as by techcompany.
     private int maxNumberOfLeaseCompanies = 10;
     private int currentNumberOfLeaseCompanies = 0;
-    LeaseCompany[] leaseCompanies = new LeaseCompany[maxNumberOfLeaseCompanies];
+    private LeaseCompany[] leaseCompanies = new LeaseCompany[maxNumberOfLeaseCompanies];
+    private String name;
+
+    public TechCompany(String name){
+        this.name = name;
+    }
 
     public LeaseCompany[] getLeaseCompanies() {
         return leaseCompanies;
+    }
+
+    public int getCurrentNumberOfLeaseCompanies() {
+        return currentNumberOfLeaseCompanies;
     }
 
     // Returns all vehicles of all leasecompanies which are available
@@ -57,6 +68,23 @@ public class TechCompany extends Company {
         }
     }
 
+    public void removeLeaseCompany(LeaseCompany leaseCompany) {
+        //Go through employee list
+        for (int i = 0; i < currentNumberOfLeaseCompanies; i++) {
+            //Remove employee if it exists, and shorten array.
+            if (leaseCompanies[i] == leaseCompany) {
+                leaseCompanies[i] = leaseCompanies[currentNumberOfLeaseCompanies - 1];
+                leaseCompanies[currentNumberOfLeaseCompanies - 1] = null;
+                // update current number of contracts
+                currentNumberOfLeaseCompanies--;
+                // Exit function; we're done
+                return;
+            }
+        }
+        //If employee does not exist, print message
+        System.out.println("Lease company not found");
+    }
+
     public Contract getContract(Employee employee) {
         for(LeaseCompany lc : getLeaseCompanies()){
             if(lc.getContractOfEmployee(employee) != null){
@@ -88,8 +116,6 @@ public class TechCompany extends Company {
         }
     }
 
-
-
     //Checks if the employee has a contract by one of the leasecompanies and prints out if there is
     public boolean checkIfEmpHasContract(Employee e) {
 
@@ -101,6 +127,14 @@ public class TechCompany extends Company {
         }
         System.out.println("There is no contract found for " + e.getFullName() );
         return false;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
 }

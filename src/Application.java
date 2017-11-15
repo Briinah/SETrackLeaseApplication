@@ -6,7 +6,6 @@ import vehicles.*;
 
 import java.time.LocalDate;
 
-
 public class Application {
 
     public static void main(String[] args)
@@ -18,7 +17,7 @@ public class Application {
     public static void setDatabase() // After startup create database.
     {
         //Create leasecompanies.
-        TechCompany techCompany = new TechCompany();
+        TechCompany techCompany = new TechCompany("test");
 
 
         //Create techcompanies.

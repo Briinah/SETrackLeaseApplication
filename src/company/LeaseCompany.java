@@ -23,7 +23,6 @@ public class LeaseCompany extends Company {
         maxNumberOfVehicles = numberOfVehicles;
         maxNumberOfContracts = numberOfContracts;
         this.name=name;
-
     }
 
     public String getName(){
@@ -31,7 +30,7 @@ public class LeaseCompany extends Company {
     }
 
 
-    //add vehicle to the leasecompany
+    //add vehicle to the lease company
     public void addVehicle(Vehicle vehicle) {
         if (currentNumberOfVehicles < maxNumberOfVehicles) {
             vehicles[currentNumberOfVehicles] = vehicle;
@@ -41,7 +40,7 @@ public class LeaseCompany extends Company {
         }
     }
 
-    //add contract to the leasecompany
+    //add contract to the lease company
     public void addContract(Contract contract) {
         if (currentNumberOfContracts < maxNumberOfContracts) {
             contracts[currentNumberOfContracts] = contract;
