@@ -8,8 +8,9 @@ import java.awt.*;
 public abstract class ItemPanel extends Panel {
 
     protected Label title;
-    Font myFont = new Font("myfont", Font.BOLD, 20);
     protected Company company;
+
+    Font myFont = new Font("myfont", Font.BOLD, 20);
 
     public ItemPanel(){
         title = new Label("Woooh");
