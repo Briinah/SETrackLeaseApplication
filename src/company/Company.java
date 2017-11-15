@@ -7,10 +7,8 @@ import company.modules.Employee;
 public abstract class Company {
 
     //Variables
-
-    int maxNumberOfEmployees = 10;
-    int currentNumberOfEmployees = 0;
-    Employee[] employees = new Employee[10];
+    private int maxNumberOfEmployees = 10, currentNumberOfEmployees = 0;
+    private Employee[] employees = new Employee[10];
 
     //Getter for the full Employee list.
     public Employee[] getEmployeeList() {
@@ -19,8 +17,10 @@ public abstract class Company {
 
     //Add an employee to the list.
     public void addEmployee(Employee employee) {
+        //Add employee if there is space
         if (currentNumberOfEmployees < maxNumberOfEmployees) {
             employees[currentNumberOfEmployees] = employee;
+            //Update current number of employees
             currentNumberOfEmployees++;
         } else {
             System.out.println("Meer werknemers mogelijk. Check het wetboek at artikel 315, lid x.");
@@ -29,7 +29,9 @@ public abstract class Company {
 
     //Remove an employee from the list.
     public void removeEmployee(Employee employee) {
+        //Go through employee list
         for (int i = 0; i < currentNumberOfEmployees; i++) {
+            //Remove employee if it exists, and shorten array.
             if (employees[i] == employee) {
                 employees[i] = employees[currentNumberOfEmployees - 1];
                 employees[currentNumberOfEmployees - 1] = null;
@@ -39,6 +41,7 @@ public abstract class Company {
                 return;
             }
         }
+        //If employee does not exist, print message
         System.out.println("Contract not found");
     }
 

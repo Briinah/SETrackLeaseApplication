@@ -4,6 +4,8 @@ import company.modules.Contract;
 import company.modules.Employee;
 import vehicles.Vehicle;
 
+//A "normal" company, the leasecompanies are clients to the "normal" company. In addition to Company superclass, it has a list of available leasecompanies.
+
 public class TechCompany extends Company {
 
 
@@ -87,5 +89,18 @@ public class TechCompany extends Company {
     }
 
 
+
+    //Checks if the employee has a contract by one of the leasecompanies and prints out if there is
+    public boolean checkIfEmpHasContract(Employee e) {
+
+        for(int i = 0; i < leaseCompanies.length; i++){
+            if(leaseCompanies[i].checkIfEmployeeHasCarHere(e)) {
+                System.out.println(e.getFullName() + " has a contract by " + leaseCompanies[i].getName());
+                return true;
+            }
+        }
+        System.out.println("There is no contract found for " + e.getFullName() );
+        return false;
+    }
 
 }

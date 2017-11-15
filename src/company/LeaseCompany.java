@@ -6,23 +6,32 @@ import vehicles.Vehicle;
 
 import static java.time.LocalDate.now;
 
+//A lease company. In addition to Company superclass, it has vehicles and lease contracts.
+
 public class LeaseCompany extends Company {
 
-    Vehicle[] vehicles;
-    Contract[] contracts;
-    int maxNumberOfVehicles, maxNumberOfContracts;
-    int currentNumberOfVehicles = 0;
-    int currentNumberOfContracts = 0;
+    private Vehicle[] vehicles;
+    private Contract[] contracts;
+    private int maxNumberOfVehicles, maxNumberOfContracts;
+    private int currentNumberOfVehicles = 0, currentNumberOfContracts = 0;
+    private String name;
 
-    public LeaseCompany(int numberOfVehicles, int numberOfContracts) {
+    //Constructor that initialises the class with a specified maximum possible number of contracts and vehicles.
+    public LeaseCompany(int numberOfVehicles, int numberOfContracts, String name) {
         vehicles = new Vehicle[numberOfVehicles];
         contracts = new Contract[numberOfContracts];
         maxNumberOfVehicles = numberOfVehicles;
         maxNumberOfContracts = numberOfContracts;
+        this.name=name;
 
     }
 
+    public String getName(){
+        return this.name;
+    }
 
+
+    //add vehicle to the leasecompany
     public void addVehicle(Vehicle vehicle) {
         if (currentNumberOfVehicles < maxNumberOfVehicles) {
             vehicles[currentNumberOfVehicles] = vehicle;
@@ -32,6 +41,7 @@ public class LeaseCompany extends Company {
         }
     }
 
+    //add contract to the leasecompany
     public void addContract(Contract contract) {
         if (currentNumberOfContracts < maxNumberOfContracts) {
             contracts[currentNumberOfContracts] = contract;
@@ -74,10 +84,12 @@ public class LeaseCompany extends Company {
 
     }
 
+    //get vehicles contracts from the leasecompanies
     public Vehicle[] getVehicles() {
         return vehicles;
     }
 
+    //get contracts from the leasecompanies
     public Contract[] getContracts() {
         return contracts;
     }
@@ -160,6 +172,7 @@ public class LeaseCompany extends Company {
         }
     }
 
+    //prints out the details of the available vehicles
     public void printAvailableVehicleDetails(){
         System.out.println("Printing currently available vehicle details:");
         Vehicle[] availableVehicles = getAvailableVehicles();
@@ -168,6 +181,7 @@ public class LeaseCompany extends Company {
         }
     }
 
+    //returns an array holding employees with a contract
     public Employee[] getEmployeesWithContract(){
         Employee[] returnEmployeeArray = new Employee[currentNumberOfContracts];
         for(int i = 0; i < currentNumberOfContracts; i++){
@@ -182,6 +196,18 @@ public class LeaseCompany extends Company {
             System.out.println(employee.getFullName());
         }
     }
+
+    // Checks if the employee has a car here.
+    public boolean checkIfEmployeeHasCarHere(Employee e) {
+
+        for(int i = 0; i < currentNumberOfContracts; i++) {
+            if(contracts[i].getEmployee() == e){
+                return true;
+            }
+        }
+        return false;
+    }
+
 
 
 }

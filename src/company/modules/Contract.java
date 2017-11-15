@@ -5,8 +5,10 @@ import vehicles.*;
 import java.time.LocalDate;
 import java.time.Period;
 
+//The contract class that represents the lease contracts held by a lease company.
 public class Contract {
 
+    //contract variables and get and set methods
     private Employee employee;
     private Vehicle vehicle;
     private LocalDate startDate;
@@ -45,7 +47,6 @@ public class Contract {
         System.out.println("You have " + days + " days, " + months + " months and " + years + " years remaining.");
 
     }
-
 
     //Prints relevant information from all the instance variables of the contract.
     public void printDetails() {

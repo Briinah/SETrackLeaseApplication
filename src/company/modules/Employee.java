@@ -4,8 +4,12 @@ import company.LeaseCompany;
 import company.TechCompany;
 import vehicles.Vehicle;
 
-public class Employee{
 
+//an employee of the companies
+public class Employee {
+
+
+    //employee variables and get and set methods
     String firstName;
     String lastName;
     int leaseLevel;
