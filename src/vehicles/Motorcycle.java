@@ -1,11 +1,12 @@
-package leasecompany.vehicles;
-
-import leasecompany.vehicles.FuelType;
+package vehicles;
 
 import java.time.LocalDate;
 
+//A motercycle. In addition to the Vehicle superclass, it has two booleans hasSideCar and hasSaddleBags.
+
 public class Motorcycle extends Vehicle {
 
+    //variables and set and get methods
     private boolean hasSideCar;
     private boolean hasSaddleBags;
 

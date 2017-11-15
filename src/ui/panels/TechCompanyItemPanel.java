@@ -1,15 +1,13 @@
 package ui.panels;
 
-import company.Employee;
+import company.modules.Employee;
 
-import javax.swing.*;
 import java.awt.*;
 import java.awt.List;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.ArrayList;
+
 import company.*;
-import leasecompany.*;
 import ui.DisplayManager;
 
 
@@ -17,9 +15,8 @@ public class TechCompanyItemPanel extends ItemPanel{
 
     private Button addEmployee_B,delEmployee_B,addLeaseCompany_B,delLeaseCompany_B, backButton;
     private Label employee_Label, leaseCompany_Label;
-    private List employeeList,leaseCompanieList;
+    private List employeeList, leaseCompanyList;
     private GridBagLayout layout;
-    Company companyClass = new Company();
     final TextField fullName_Text,leaseCompany_Text;
 
     public TechCompanyItemPanel(){
@@ -36,7 +33,7 @@ public class TechCompanyItemPanel extends ItemPanel{
         leaseCompany_Text = new TextField(25);
 
         employeeList = new List();
-        leaseCompanieList = new List();
+        leaseCompanyList = new List();
 
         layout = new GridBagLayout();
         this.setLayout(layout);
@@ -47,7 +44,7 @@ public class TechCompanyItemPanel extends ItemPanel{
         addEmployee_B.setVisible(true);
         delEmployee_B.setVisible(true);
         employeeList.setVisible(true);
-        leaseCompanieList.setVisible(true);
+        leaseCompanyList.setVisible(true);
         fullName_Text.setVisible(true);
 
         gbc.fill = GridBagConstraints.HORIZONTAL;
@@ -68,7 +65,7 @@ public class TechCompanyItemPanel extends ItemPanel{
         this.add(employeeList,gbc);
         gbc.gridx = 4;
         gbc.gridy = 2;
-        this.add(leaseCompanieList,gbc);
+        this.add(leaseCompanyList,gbc);
 
         gbc.fill = GridBagConstraints.HORIZONTAL;
         gbc.ipady = 10;
@@ -122,7 +119,7 @@ public class TechCompanyItemPanel extends ItemPanel{
                 if(!name.contains(" "))
                     return;
                 String[] fullName = name.split(" ");
-                Employee employee = new Employee(fullName[0],fullName[1],1,companyClass);
+                Employee employee = new Employee(fullName[0],fullName[1],1);
                 addEmployeeToList(employee.getFullName(),employee);
             }
         });
@@ -138,7 +135,7 @@ public class TechCompanyItemPanel extends ItemPanel{
             @Override
             public void actionPerformed(ActionEvent e) {
                 String company = leaseCompany_Text.getText();
-                LeaseCompany ls = new LeaseCompany(company,5,5);
+                LeaseCompany ls = new LeaseCompany(5,5, company);
                 addLeaseCompanyToList(company,ls);
             }
         });
@@ -146,7 +143,7 @@ public class TechCompanyItemPanel extends ItemPanel{
         delLeaseCompany_B.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                delLeaseCompanyFromList(leaseCompanieList.getSelectedIndex());
+                delLeaseCompanyFromList(leaseCompanyList.getSelectedIndex());
             }
         });
 
@@ -165,7 +162,6 @@ public class TechCompanyItemPanel extends ItemPanel{
     public void addEmployeeToList(String emp,Employee employee)
     {
         employeeList.add(emp);
-        companyClass.addEmployee(employee);
     }
     // delete a employee when delEmployee_B is Pressed
     public void delEmployeeFromList(int index)
@@ -175,12 +171,11 @@ public class TechCompanyItemPanel extends ItemPanel{
     // add a lease company when addLeaseCompany_B  is Pressed
     public void addLeaseCompanyToList(String name,LeaseCompany ls)
     {
-        leaseCompanieList.add(name);
-        companyClass.addLeaseCompanies(ls);
+        leaseCompanyList.add(name);
     }
     // delete a lease company when delLeaseCompany_B  is Pressed
     public void delLeaseCompanyFromList(int index)
     {
-        leaseCompanieList.remove(index);
+        leaseCompanyList.remove(index);
     }
 }
