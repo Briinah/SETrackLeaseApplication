@@ -45,18 +45,18 @@ public class Truck extends Vehicle {
         return amountOfTrailers;
     }
 
-    public void setAmountOfTrailers (int amountOfTrailers)
+    public void setAmountOfTrailers(int amountOfTrailers)
 
-        {
-            if (amountOfTrailers > maxAmountOfTrailers) {
-                System.out.println("Er zitten nu " + maxAmountOfTrailers + " aan de truck. Omdat dit het maximaal aantal aanhangers is.");
-                this.amountOfTrailers = maxAmountOfTrailers;
+    {
+        if (amountOfTrailers > maxAmountOfTrailers) {
+            System.out.println("Er zitten nu " + maxAmountOfTrailers + " aan de truck. Omdat dit het maximaal aantal aanhangers is.");
+            this.amountOfTrailers = maxAmountOfTrailers;
 
-            }else {
-                this.amountOfTrailers = amountOfTrailers;
-                System.out.println("Er zitten nu " + amountOfTrailers + " trailers aan de truck.");
-            }
+        } else {
+            this.amountOfTrailers = amountOfTrailers;
+            System.out.println("Er zitten nu " + amountOfTrailers + " trailers aan de truck.");
         }
+    }
 
 
     public CargoType getCargoType() {
@@ -66,6 +66,8 @@ public class Truck extends Vehicle {
     public void setCargoType(CargoType cargoType) {
         this.cargoType = cargoType;
     }
+
+}
 
 
 
