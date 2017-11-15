@@ -28,13 +28,15 @@ public class Contract {
     public Vehicle getVehicle() {
         return this.vehicle;
     }
+
+    /* Unused:
     public LocalDate getEndDate() {
         return this.endDate;
     }
     public LocalDate getStartDate() {
         return this.startDate;
     }
-
+    */
 
     //Calculates the difference between the current and end date of the contract,
     //puts it in a Period class and prints the results.

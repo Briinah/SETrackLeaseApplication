@@ -12,7 +12,7 @@ public class TechCompany extends Company {
     //Max number of leasecompanies as by techcompany.
     private int maxNumberOfLeaseCompanies = 10;
     private int currentNumberOfLeaseCompanies = 0;
-    LeaseCompany[] leaseCompanies = new LeaseCompany[maxNumberOfLeaseCompanies];
+    private LeaseCompany[] leaseCompanies = new LeaseCompany[maxNumberOfLeaseCompanies];
 
     public LeaseCompany[] getLeaseCompanies() {
         return leaseCompanies;

@@ -14,6 +14,7 @@ public class Employee {
     private String lastName;
     private int leaseLevel;
 
+
     public Employee(String firstname, String lastname, int leaseLevel){
         this.firstName = firstname;
         this.lastName = lastname;

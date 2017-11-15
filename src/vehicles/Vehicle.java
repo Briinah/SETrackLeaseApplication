@@ -12,9 +12,13 @@ public abstract class Vehicle {
     private String type;
     private String licensePlate;
 
-    private int price;
+
     private LocalDate manufactureDate;
+
+    /* Unused:
     private int tax;
+    private int price;
+    */
 
     private float mileageInKm;
 
@@ -27,15 +31,14 @@ public abstract class Vehicle {
         this.type = newType;
         this.licensePlate = newLicensePlate;
         this.manufactureDate = newManufactureDate;
-        this.tax = newTax;
+        //this.tax = newTax;
         this.mileageInKm = 0;
         this.fuelType = newFuelType;
     }
 
-    /*
+    /* Unused:
     change price
     returns: current price
-     */
     public int setPrice(int newPrice) {
 
         if(newPrice > 0) {
@@ -50,45 +53,48 @@ public abstract class Vehicle {
         System.out.println(price);
         return price;
 
-    }
+    } */
 
 
     // returns vehicle type as string
-    public String getVehicleType () {
+    protected String getVehicleType () {
         return this.getClass().getSimpleName();
     }
 
     public abstract String getDetails();
 
-    public String getBrand() {
+    protected String getBrand() {
         return brand;
     }
 
-    public String getType() {
+    protected String getType() {
         return type;
     }
 
-    public String getLicensePlate() {
+    protected String getLicensePlate() {
         return licensePlate;
     }
 
-    public int getPrice() {
-        return price;
+    protected LocalDate getManufactureDate() {
+        return manufactureDate;
     }
 
-    public LocalDate getManufactureDate() {
-        return manufactureDate;
+    protected float getMileageInKm() {
+        return mileageInKm;
+    }
+
+    protected FuelType getFuelType() {
+        return fuelType;
+    }
+
+    /* Unused:
+    public int getPrice() {
+        return price;
     }
 
     public int getTax() {
         return tax;
     }
 
-    public float getMileageInKm() {
-        return mileageInKm;
-    }
-
-    public FuelType getFuelType() {
-        return fuelType;
-    }
+     */
 }
