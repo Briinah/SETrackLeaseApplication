@@ -2,10 +2,8 @@ import company.*;
 import company.modules.Contract;
 import company.LeaseCompany;
 import company.modules.Employee;
-import vehicles.Car;
-import vehicles.FuelType;
-import vehicles.Motorcycle;
-import vehicles.Vehicle;
+import vehicles.*;
+
 import java.time.LocalDate;
 
 public class Application {
@@ -39,13 +37,22 @@ public class Application {
         // Create vehicles.
         Vehicle BMWBas = new Car("BMW","I3","GHFD45",LocalDate.of(2015,2,10),22, FuelType.Gasoline);
         Vehicle AudiJeff = new Car("Audi","A1","HH88FF",LocalDate.of(2016,8,14),22, FuelType.Diesel);
+
+        // Truck
+        Truck truck = new Truck ("Mercedes", "B3", "GHJXD4",LocalDate.of(2016, 8, 5), 87, FuelType.Electric);
+        truck.setHasSleepingSpace(false);
+        truck.setCargoType(CargoType.transporter);
+        truck.setAmountOfTrailers(2);
+
         Vehicle RandomVehicle = new Car("BMW","A1","HH88FF",LocalDate.of(2016,8,14),22, FuelType.Diesel);
         Motorcycle motorcycle = new Motorcycle("BMW","A1","HH88FF",LocalDate.of(2016,8,14),22, FuelType.Gasoline);
         motorcycle.setHasSideCar(true);
+
         leaseCompany.addVehicle(BMWBas);
         leaseCompany.addVehicle(AudiJeff);
         leaseCompany.addVehicle(RandomVehicle);
         leaseCompany.addVehicle(motorcycle);
+
         //create contracts.
         Contract conJeff = new Contract(LocalDate.now(),LocalDate.of(2021,2,7),jeffrey,AudiJeff);
         Contract conBas = new Contract(LocalDate.now(),LocalDate.of(2021,2,11),Bas,BMWBas);

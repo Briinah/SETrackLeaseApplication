@@ -8,18 +8,18 @@ import java.time.LocalDate;
 
 public abstract class Vehicle {
 
-    protected String brand;
-    protected String type;
-    protected String licensePlate;
+    private String brand;
+    private String type;
+    private String licensePlate;
 
-    protected int price;
-    protected LocalDate manufactureDate;
-    protected int tax;
+    private int price;
+    private LocalDate manufactureDate;
+    private int tax;
 
-    protected float mileageInKm;
+    private float mileageInKm;
 
 
-    protected FuelType fuelType;
+    private FuelType fuelType;
 
     // initialises new vehicle
     public Vehicle(String newBrand, String newType, String newLicensePlate, LocalDate newManufactureDate, int newTax, FuelType newFuelType) {

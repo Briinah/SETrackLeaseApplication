@@ -176,7 +176,6 @@ public class TechCompanyItemPanel extends ItemPanel{
         backButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
                 System.out.println("Clicked company button!");
                 DisplayManager.getInstance().setCurrentPanel(PanelType.TechCompanyListPanel);
             }
@@ -190,6 +189,7 @@ public class TechCompanyItemPanel extends ItemPanel{
 
         fillEmployeeList();
         fillLeaseCompanyList();
+
     }
 
     // Fills the employeelist with existing employees
