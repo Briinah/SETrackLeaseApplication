@@ -12,12 +12,21 @@ public class TechCompany extends Company {
 
 
     //Max number of leasecompanies as by techcompany.
-    int maxNumberOfLeaseCompanies = 10;
-    int currentNumberOfLeaseCompanies = 0;
+    private int maxNumberOfLeaseCompanies = 10;
+    private int currentNumberOfLeaseCompanies = 0;
     private LeaseCompany[] leaseCompanies = new LeaseCompany[maxNumberOfLeaseCompanies];
+    private String name;
+
+    public TechCompany(String name){
+        this.name = name;
+    }
 
     public LeaseCompany[] getLeaseCompanies() {
         return leaseCompanies;
+    }
+
+    public int getCurrentNumberOfLeaseCompanies() {
+        return currentNumberOfLeaseCompanies;
     }
 
     // Returns all vehicles of all leasecompanies which are available
@@ -119,4 +128,13 @@ public class TechCompany extends Company {
         System.out.println("There is no contract found for " + e.getFullName() );
         return false;
     }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
 }

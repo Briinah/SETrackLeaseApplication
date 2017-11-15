@@ -1,6 +1,7 @@
 package ui.panels;
 
 import company.Company;
+import company.TechCompany;
 
 import java.awt.*;
 

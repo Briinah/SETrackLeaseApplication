@@ -1,5 +1,7 @@
 package ui.panels;
 
+import company.Company;
+import company.TechCompany;
 import ui.Display;
 import ui.DisplayManager;
 
@@ -21,12 +23,17 @@ public class TechCompanyListPanel extends Panel {
     private TextField textField;
     private Label label;
     private StringBuilder sb;
-    private String selectedCompany;
+    private TechCompany[] techComp;
+    private TechCompany selectedCompany;
+    private int index = 0;
+
 
     /**
      * Initialises the layout, buttons and the list to manage companies
      */
     public TechCompanyListPanel(){
+
+        techComp = new TechCompany[10];
 
         // Layout settings
         gridBagLayout = new GridBagLayout();
@@ -116,13 +123,15 @@ public class TechCompanyListPanel extends Panel {
             @Override
             public void actionPerformed(ActionEvent e) {
                 // If the StringBuilder is empty, return
-                if(sb.length() == 0){
+                if(sb.length() == 0 || index > 9){
                     return;
                 }
 
                 // Otherwise, add the company to the list
                 System.out.println("Added: "+sb.toString());
                 list.add(sb.toString());
+                techComp[index] = new TechCompany(sb.toString());
+                index++;
                 sb.setLength(0);
                 textField.setText("");
             }
@@ -132,20 +141,23 @@ public class TechCompanyListPanel extends Panel {
             @Override
             public void itemStateChanged(ItemEvent e) {
                 // Store the selected company in a String
-                selectedCompany = list.getSelectedItem();
-                System.out.println("Selected: "+selectedCompany);
+                selectedCompany = techComp[list.getSelectedIndex()];
+                System.out.println("Selected: " + selectedCompany.getName());
             }
         });
 
         editButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if(selectedCompany == null || selectedCompany.isEmpty()){
+                if(selectedCompany == null){
                     return;
                 }
 
-                System.out.println("Edit: "+selectedCompany);
-                ((ItemPanel)PanelType.TechCompanyItemPanel.getPanel()).setTitle(selectedCompany);
+                System.out.println("Edit: "+selectedCompany.getName());
+                // Set title
+                ((ItemPanel)PanelType.TechCompanyItemPanel.getPanel()).setTitle(selectedCompany.getName());
+                // Set techCompany
+                ((ItemPanel)PanelType.TechCompanyItemPanel.getPanel()).setCompany(selectedCompany);
                 DisplayManager.getInstance().setCurrentPanel(PanelType.TechCompanyItemPanel);
             }
         });

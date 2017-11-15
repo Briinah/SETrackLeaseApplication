@@ -160,16 +160,21 @@ public class TechCompanyItemPanel extends ItemPanel{
         });
     }
 
-    public void setCompany(Company company){
-        this.company = company;
-        fillLeaseCompanyList();
-    }
-
     // Fills the list item with lease company names that already exist
-    private void fillLeaseCompanyList(){
-        for(LeaseCompany lc : ((TechCompany)company).getLeaseCompanies()){
+    private void fillLeaseCompanyList() {
+        if (((TechCompany) company).getCurrentNumberOfLeaseCompanies() <= 0)
+            return;
+        for (LeaseCompany lc : ((TechCompany) company).getLeaseCompanies()) {
             leaseCompanyList.add(lc.getName());
         }
+    }
+
+    @Override
+    // set tech company
+    public void setCompany(Company techCompany){
+        this.company = techCompany;
+        fillLeaseCompanyList();
+        // TODO : Initialize Employee and LC lists with this company!!
     }
 
     // add a employee when addEmployee_B is Pressed
@@ -182,6 +187,10 @@ public class TechCompanyItemPanel extends ItemPanel{
     }
     // add a lease company when addLeaseCompany_B  is Pressed
     public void addLeaseCompanyToList(String name,LeaseCompany ls){
+        if (name.equals("")){
+            System.out.println("Cannot add company without a name");
+            return;
+        }
         leaseCompanyList.add(name);
         ((TechCompany)company).addLeaseCompany(ls);
 
