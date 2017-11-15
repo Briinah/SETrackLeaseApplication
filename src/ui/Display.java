@@ -1,9 +1,6 @@
 package ui;
 
-import ui.panels.TechCompany;
-import ui.panels.MainPanel;
 import ui.panels.PanelType;
-import ui.panels.TechCompanyListPanel;
 
 import java.awt.*;
 import java.awt.event.WindowAdapter;
