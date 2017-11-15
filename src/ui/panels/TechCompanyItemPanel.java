@@ -109,6 +109,19 @@ public class TechCompanyItemPanel extends ItemPanel{
         Handlers();
     }
 
+    @Override
+    public void setCompany(Company company) {
+        this.company = company;
+
+        // First delete existing employees
+        employeeList.removeAll();
+        // Add existing employees to the list
+        Employee[] employees = company.getEmployeeList();
+        for (Employee employee : employees) {
+            employeeList.add(employee.getFullName());
+        }
+    }
+
     // Buttons for adding and deleting Items
     private void Handlers(){
 
@@ -157,6 +170,8 @@ public class TechCompanyItemPanel extends ItemPanel{
             }
         });
     }
+
+    // initialize with employees
 
     // add a employee when addEmployee_B is Pressed
     public void addEmployeeToList(String emp,Employee employee)
