@@ -7,7 +7,6 @@ import company.modules.Employee;
 public abstract class Company {
 
     //Variables
-
     private int maxNumberOfEmployees = 10, currentNumberOfEmployees = 0;
     private Employee[] employees = new Employee[10];
 
