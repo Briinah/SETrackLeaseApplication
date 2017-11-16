@@ -1,14 +1,14 @@
-package ui.panels;
+package Application.ui.panels;
 
-import Backend.company.modules.Employee;
+import Application.Backend.company.modules.Employee;
 
 import java.awt.*;
 import java.awt.List;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import Backend.company.*;
-import ui.DisplayManager;
+import Application.Backend.company.*;
+import Application.ui.DisplayManager;
 
 
 public class TechCompanyItemPanel extends ItemPanel{
@@ -27,8 +27,8 @@ public class TechCompanyItemPanel extends ItemPanel{
         leaseCompany_Label = new Label("Lease Companies");
         addEmployee_B = new Button("Add employee");
         delEmployee_B = new Button("Delete employee");
-        addLeaseCompany_B = new Button("Add Backend.company");
-        delLeaseCompany_B = new Button("Delete Backend.company");
+        addLeaseCompany_B = new Button("Add ApplicationBE.Backend.company");
+        delLeaseCompany_B = new Button("Delete ApplicationBE.Backend.company");
         backButton = new Button("Return");
         fullName_Text = new TextField(25);
         employee_leaselevel = new TextField(25);
@@ -175,7 +175,7 @@ public class TechCompanyItemPanel extends ItemPanel{
         backButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                System.out.println("Clicked Backend.company button!");
+                System.out.println("Clicked ApplicationBE.Backend.company button!");
                 DisplayManager.getInstance().setCurrentPanel(PanelType.TechCompanyListPanel);
             }
         });
@@ -203,7 +203,7 @@ public class TechCompanyItemPanel extends ItemPanel{
     }
 
 
-    // Fills the list item with lease Backend.company names that already exist
+    // Fills the list item with lease ApplicationBE.Backend.company names that already exist
     private void fillLeaseCompanyList() {
         leaseCompanyList.removeAll();
         for (int i = 0; i < ((TechCompany) company).getCurrentNumberOfLeaseCompanies(); i++){
@@ -226,17 +226,17 @@ public class TechCompanyItemPanel extends ItemPanel{
         employeeList.remove(index);
     }
 
-    // add a lease Backend.company when addLeaseCompany_B  is Pressed
+    // add a lease ApplicationBE.Backend.company when addLeaseCompany_B  is Pressed
     public void addLeaseCompanyToList(String name,LeaseCompany ls){
         if (name.equals("")){
-            System.out.println("Cannot add Backend.company without a name");
+            System.out.println("Cannot add ApplicationBE.Backend.company without a name");
             return;
         }
         leaseCompanyList.add(name);
         ((TechCompany)company).addLeaseCompany(ls);
 
     }
-    // delete a lease Backend.company when delLeaseCompany_B  is Pressed
+    // delete a lease ApplicationBE.Backend.company when delLeaseCompany_B  is Pressed
     public void delLeaseCompanyFromList(int index)
     {
         leaseCompanyList.remove(index);

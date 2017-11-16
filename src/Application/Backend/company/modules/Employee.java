@@ -1,4 +1,4 @@
-package Backend.company.modules;
+package Application.Backend.company.modules;
 
 
 //an employee of the companies

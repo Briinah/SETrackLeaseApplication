@@ -1,14 +1,14 @@
-package Backend;
+package Application;
 
-import Backend.company.*;
-import Backend.company.modules.Contract;
-import Backend.company.LeaseCompany;
-import Backend.company.modules.Employee;
-import Backend.vehicles.*;
+import Application.Backend.company.*;
+import Application.Backend.company.modules.Contract;
+import Application.Backend.company.LeaseCompany;
+import Application.Backend.company.modules.Employee;
+import Application.Backend.vehicles.*;
 
 import java.time.LocalDate;
 
-public class Application {
+public class ApplicationBE {
 
     public static void main(String[] args)
     {
@@ -36,7 +36,7 @@ public class Application {
         techCompany.addEmployee(Bas);
         techCompany.addEmployee(Koen);
 
-        // Create Backend.vehicles.
+        // Create ApplicationBE.Backend.vehicles.
         Vehicle BMWBas = new Car("BMW","I3","GHFD45",LocalDate.of(2015,2,10),22, FuelType.Gasoline);
         Vehicle AudiJeff = new Car("Audi","A1","HH88FF",LocalDate.of(2016,8,14),22, FuelType.Diesel);
 

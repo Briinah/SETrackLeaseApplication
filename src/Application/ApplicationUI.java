@@ -1,5 +1,7 @@
-import ui.Display;
-import ui.DisplayManager;
+package Application;
+
+import Application.ui.Display;
+import Application.ui.DisplayManager;
 
 public class ApplicationUI {
 

@@ -1,6 +1,6 @@
-package ui.panels;
+package Application.ui.panels;
 
-import Backend.company.Company;
+import Application.Backend.company.Company;
 
 public class LeaseCompanyItemPanel extends ItemPanel {
 

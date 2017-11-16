@@ -1,8 +1,6 @@
-package ui;
+package Application.ui;
 
-import sun.util.resources.cldr.ebu.CurrencyNames_ebu;
-import ui.panels.ItemPanel;
-import ui.panels.PanelType;
+import Application.ui.panels.PanelType;
 
 import java.awt.*;
 import java.awt.event.WindowAdapter;
