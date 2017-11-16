@@ -1,7 +1,7 @@
-package ui.panels;
+package Application.ui.panels;
 
-import ui.DisplayManager;
-import ui.elements.MenuButton;
+import Application.ui.DisplayManager;
+import Application.ui.elements.MenuButton;
 
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -40,7 +40,7 @@ public class LeaseCompanyListPanel extends Panel {
             @Override
             public void actionPerformed(ActionEvent e) {
 
-                System.out.println("Clicked company button!");
+                System.out.println("Clicked ApplicationBE.Backend.company button!");
                 DisplayManager.getInstance().setCurrentPanel(PanelType.MainPanel);
             }
         });

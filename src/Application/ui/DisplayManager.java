@@ -1,6 +1,6 @@
-package ui;
+package Application.ui;
 
-import ui.panels.PanelType;
+import Application.ui.panels.PanelType;
 
 public class DisplayManager {
     // Set using the createDisplayManager().

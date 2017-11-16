@@ -1,8 +1,4 @@
-package company.modules;
-
-import company.LeaseCompany;
-import company.TechCompany;
-import vehicles.Vehicle;
+package Application.Backend.company.modules;
 
 
 //an employee of the companies

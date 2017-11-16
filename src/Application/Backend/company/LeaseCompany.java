@@ -1,12 +1,12 @@
-package company;
+package Application.Backend.company;
 
-import company.modules.Contract;
-import company.modules.Employee;
-import vehicles.Vehicle;
+import Application.Backend.company.modules.Contract;
+import Application.Backend.company.modules.Employee;
+import Application.Backend.vehicles.Vehicle;
 
 import static java.time.LocalDate.now;
 
-//A lease company. In addition to Company superclass, it has vehicles and lease contracts.
+//A lease ApplicationBE.Backend.company. In addition to Company superclass, it has ApplicationBE.Backend.vehicles and lease contracts.
 
 public class LeaseCompany extends Company {
 
@@ -16,7 +16,7 @@ public class LeaseCompany extends Company {
     private int currentNumberOfVehicles = 0, currentNumberOfContracts = 0;
     private String name;
 
-    //Constructor that initialises the class with a specified maximum possible number of contracts and vehicles.
+    //Constructor that initialises the class with a specified maximum possible number of contracts and ApplicationBE.Backend.vehicles.
     public LeaseCompany(int numberOfVehicles, int numberOfContracts, String name) {
         vehicles = new Vehicle[numberOfVehicles];
         contracts = new Contract[numberOfContracts];
@@ -30,7 +30,7 @@ public class LeaseCompany extends Company {
     }
 
 
-    //add vehicle to the lease company
+    //add vehicle to the lease ApplicationBE.Backend.company
     public void addVehicle(Vehicle vehicle) {
         if (currentNumberOfVehicles < maxNumberOfVehicles) {
             vehicles[currentNumberOfVehicles] = vehicle;
@@ -40,7 +40,7 @@ public class LeaseCompany extends Company {
         }
     }
 
-    //add contract to the lease company
+    //add contract to the lease ApplicationBE.Backend.company
     public void addContract(Contract contract) {
         if (currentNumberOfContracts < maxNumberOfContracts) {
             contracts[currentNumberOfContracts] = contract;
@@ -83,7 +83,7 @@ public class LeaseCompany extends Company {
 
     }
 
-    //get vehicles contracts from the leasecompanies
+    //get ApplicationBE.Backend.vehicles contracts from the leasecompanies
     public Vehicle[] getVehicles() {
         return vehicles;
     }
@@ -132,7 +132,7 @@ public class LeaseCompany extends Company {
         return true;
     }
 
-    //Returns number of available vehicles
+    //Returns number of available ApplicationBE.Backend.vehicles
     private int getNumberOfAvailableVehicles() {
         int number = 0;
         for (int i = 0; i < currentNumberOfVehicles; i++) {
@@ -143,7 +143,7 @@ public class LeaseCompany extends Company {
         return number;
     }
 
-    //Returns Array of available vehicles
+    //Returns Array of available ApplicationBE.Backend.vehicles
     public Vehicle[] getAvailableVehicles() {
         int numberOfAvailableVehicles = getNumberOfAvailableVehicles();
         int currentIndex = 0;
@@ -157,7 +157,7 @@ public class LeaseCompany extends Company {
         return returnArray;
     }
 
-    //Prints details of all vehicles
+    //Prints details of all ApplicationBE.Backend.vehicles
     public void printVehicleDetails() {
         for (int i = 0; i < currentNumberOfVehicles; i++) {
             System.out.println(vehicles[i].getDetails());
@@ -171,7 +171,7 @@ public class LeaseCompany extends Company {
         }
     }
 
-    //prints out the details of the available vehicles
+    //prints out the details of the available ApplicationBE.Backend.vehicles
     public void printAvailableVehicleDetails(){
         System.out.println("Printing currently available vehicle details:");
         Vehicle[] availableVehicles = getAvailableVehicles();

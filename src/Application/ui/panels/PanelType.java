@@ -1,4 +1,4 @@
-package ui.panels;
+package Application.ui.panels;
 
 import java.awt.*;
 

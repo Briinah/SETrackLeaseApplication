@@ -1,4 +1,4 @@
-package vehicles;
+package Application.Backend.vehicles;
 /*
 This class represents a vehicle
 Authors: Carolien en Maarten

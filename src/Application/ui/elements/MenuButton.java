@@ -1,4 +1,4 @@
-package ui.elements;
+package Application.ui.elements;
 
 import java.awt.*;
 
