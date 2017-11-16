@@ -40,7 +40,7 @@ public class LeaseCompanyListPanel extends Panel {
             @Override
             public void actionPerformed(ActionEvent e) {
 
-                System.out.println("Clicked company button!");
+                System.out.println("Clicked Backend.company button!");
                 DisplayManager.getInstance().setCurrentPanel(PanelType.MainPanel);
             }
         });

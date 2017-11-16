@@ -1,6 +1,6 @@
-package company;
+package Backend.company;
 
-import company.modules.Employee;
+import Backend.company.modules.Employee;
 
 //Abstract Company, superclasses TechCompany and LeaseCompany. Both have employees, common employee functionality is here.
 

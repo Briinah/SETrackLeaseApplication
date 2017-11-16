@@ -1,12 +1,10 @@
-package company;
+package Backend.company;
 
-import company.modules.Contract;
-import company.modules.Employee;
-import vehicles.Vehicle;
+import Backend.company.modules.Contract;
+import Backend.company.modules.Employee;
+import Backend.vehicles.Vehicle;
 
-import java.rmi.dgc.Lease;
-
-//A "normal" company, the leasecompanies are clients to the "normal" company. In addition to Company superclass, it has a list of available leasecompanies.
+//A "normal" Backend.company, the leasecompanies are clients to the "normal" Backend.company. In addition to Company superclass, it has a list of available leasecompanies.
 
 public class TechCompany extends Company {
 
@@ -29,12 +27,12 @@ public class TechCompany extends Company {
         return currentNumberOfLeaseCompanies;
     }
 
-    // Returns all vehicles of all leasecompanies which are available
+    // Returns all Backend.vehicles of all leasecompanies which are available
     public Vehicle[] getAvailableVehicles() {
         // Register length
 
        Vehicle[][] tempVehicleArray = new Vehicle[currentNumberOfLeaseCompanies][];
-        // Get all available vehicles
+        // Get all available Backend.vehicles
         for (int i = 0; i < currentNumberOfLeaseCompanies; i++) {
             tempVehicleArray[i] = leaseCompanies[i].getAvailableVehicles();
         }
@@ -82,7 +80,7 @@ public class TechCompany extends Company {
             }
         }
         //If employee does not exist, print message
-        System.out.println("Lease company not found");
+        System.out.println("Lease Backend.company not found");
     }
 
     public Contract getContract(Employee employee) {

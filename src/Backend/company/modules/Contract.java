@@ -1,11 +1,11 @@
-package company.modules;
+package Backend.company.modules;
 
-import vehicles.*;
+import Backend.vehicles.*;
 
 import java.time.LocalDate;
 import java.time.Period;
 
-//The contract class that represents the lease contracts held by a lease company.
+//The contract class that represents the lease contracts held by a lease Backend.company.
 public class Contract {
 
     //contract variables and get and set methods

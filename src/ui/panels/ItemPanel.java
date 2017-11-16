@@ -1,6 +1,6 @@
 package ui.panels;
 
-import company.Company;
+import Backend.company.Company;
 import java.awt.*;
 
 public abstract class ItemPanel extends Panel {

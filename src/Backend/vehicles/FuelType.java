@@ -1,4 +1,4 @@
-package vehicles;
+package Backend.vehicles;
 
 // represents different types of fuel
 public enum FuelType {

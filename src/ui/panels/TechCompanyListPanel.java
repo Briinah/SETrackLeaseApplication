@@ -1,15 +1,13 @@
 package ui.panels;
 
-import company.Company;
-import company.TechCompany;
-import ui.Display;
+import Backend.company.TechCompany;
 import ui.DisplayManager;
 
 import java.awt.*;
 import java.awt.event.*;
 
 /**
- * Shows a list of companies, functions to add companies and edit a company
+ * Shows a list of companies, functions to add companies and edit a Backend.company
  * @author Daniel
  */
 public class TechCompanyListPanel extends Panel {
@@ -58,7 +56,7 @@ public class TechCompanyListPanel extends Panel {
         this.add(textField, gbc);
 
         // Add button
-        addButton = new Button("Add company");
+        addButton = new Button("Add Backend.company");
         addButton.setVisible(true);
         gbc.gridx = 0;
         gbc.gridy = 2;
@@ -72,7 +70,7 @@ public class TechCompanyListPanel extends Panel {
         this.add(list, gbc);
 
         // Edit button
-        editButton = new Button("Edit company");
+        editButton = new Button("Edit Backend.company");
         editButton.setVisible(true);
         gbc.gridx = 0;
         gbc.gridy = 4;
@@ -116,7 +114,7 @@ public class TechCompanyListPanel extends Panel {
         list.addItemListener(new ItemListener() {
             @Override
             public void itemStateChanged(ItemEvent e) {
-                // Store the selected company in a String
+                // Store the selected Backend.company in a String
                 selectedCompany = techComp[list.getSelectedIndex()];
                 System.out.println("Selected: " + selectedCompany.getName());
             }
@@ -143,7 +141,7 @@ public class TechCompanyListPanel extends Panel {
             @Override
             public void actionPerformed(ActionEvent e) {
 
-                System.out.println("Clicked company button!");
+                System.out.println("Clicked Backend.company button!");
                 DisplayManager.getInstance().setCurrentPanel(PanelType.MainPanel);
             }
         });
@@ -157,7 +155,7 @@ public class TechCompanyListPanel extends Panel {
             return;
         }
 
-        // Otherwise, add the company to the list
+        // Otherwise, add the Backend.company to the list
         System.out.println("Added: "+ companyName);
         list.add(companyName);
         techComp[index] = new TechCompany(companyName);

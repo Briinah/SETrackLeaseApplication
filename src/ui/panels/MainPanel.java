@@ -21,7 +21,7 @@ public class MainPanel extends Panel {
     Font myFont = new Font("myfont", Font.BOLD, 20);
 
     /**
-     * Main panel with buttons to company, employee and lease company
+     * Main panel with buttons to Backend.company, employee and lease Backend.company
      */
     public MainPanel(){
 
@@ -53,12 +53,12 @@ public class MainPanel extends Panel {
         this.add(leaseCompanyButton, gbc);
 
 
-        // set company button event
+        // set Backend.company button event
         companyButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
 
-                System.out.println("Clicked company button!");
+                System.out.println("Clicked Backend.company button!");
                 DisplayManager.getInstance().setCurrentPanel(PanelType.TechCompanyListPanel);
             }
         });
@@ -73,12 +73,12 @@ public class MainPanel extends Panel {
         });
         */
 
-        // set lease company button event
+        // set lease Backend.company button event
         leaseCompanyButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
 
-                System.out.println("Clicked lease company button!");
+                System.out.println("Clicked lease Backend.company button!");
                 DisplayManager.getInstance().setCurrentPanel(PanelType.LeaseCompanyListPanel);
             }
         });

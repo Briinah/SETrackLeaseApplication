@@ -1,14 +1,13 @@
 package ui.panels;
 
-import company.modules.Employee;
+import Backend.company.modules.Employee;
 
 import java.awt.*;
 import java.awt.List;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.ArrayList;
 
-import company.*;
+import Backend.company.*;
 import ui.DisplayManager;
 
 
@@ -28,8 +27,8 @@ public class TechCompanyItemPanel extends ItemPanel{
         leaseCompany_Label = new Label("Lease Companies");
         addEmployee_B = new Button("Add employee");
         delEmployee_B = new Button("Delete employee");
-        addLeaseCompany_B = new Button("Add company");
-        delLeaseCompany_B = new Button("Delete company");
+        addLeaseCompany_B = new Button("Add Backend.company");
+        delLeaseCompany_B = new Button("Delete Backend.company");
         backButton = new Button("Return");
         fullName_Text = new TextField(25);
         employee_leaselevel = new TextField(25);
@@ -176,7 +175,7 @@ public class TechCompanyItemPanel extends ItemPanel{
         backButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                System.out.println("Clicked company button!");
+                System.out.println("Clicked Backend.company button!");
                 DisplayManager.getInstance().setCurrentPanel(PanelType.TechCompanyListPanel);
             }
         });
@@ -204,7 +203,7 @@ public class TechCompanyItemPanel extends ItemPanel{
     }
 
 
-    // Fills the list item with lease company names that already exist
+    // Fills the list item with lease Backend.company names that already exist
     private void fillLeaseCompanyList() {
         leaseCompanyList.removeAll();
         for (int i = 0; i < ((TechCompany) company).getCurrentNumberOfLeaseCompanies(); i++){
@@ -227,17 +226,17 @@ public class TechCompanyItemPanel extends ItemPanel{
         employeeList.remove(index);
     }
 
-    // add a lease company when addLeaseCompany_B  is Pressed
+    // add a lease Backend.company when addLeaseCompany_B  is Pressed
     public void addLeaseCompanyToList(String name,LeaseCompany ls){
         if (name.equals("")){
-            System.out.println("Cannot add company without a name");
+            System.out.println("Cannot add Backend.company without a name");
             return;
         }
         leaseCompanyList.add(name);
         ((TechCompany)company).addLeaseCompany(ls);
 
     }
-    // delete a lease company when delLeaseCompany_B  is Pressed
+    // delete a lease Backend.company when delLeaseCompany_B  is Pressed
     public void delLeaseCompanyFromList(int index)
     {
         leaseCompanyList.remove(index);
